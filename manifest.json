@@ -1,0 +1,22 @@
+{
+  "name": "IZIHIRWE Pro - Factory Manager",
+  "short_name": "IZIHIRWE Pro",
+  "description": "IZIHIRWE 30 Staff - Day/Night - Sunday OFF",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#4a0a14",
+  "theme_color": "#4a0a14",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
