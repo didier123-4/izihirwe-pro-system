@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IZIHIRWE PRO</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#0f172a;color:#e2e8f0;min-height:100vh}
+.header{background:linear-gradient(135deg,#1e3a8a,#3b82f6);padding:20px;text-align:center}
+.header h1{font-size:26px;font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px}
+.card{background:#1e293b;border-radius:14px;padding:14px;text-align:center;border:1px solid #334155}
+.card h3{color:#60a5fa;font-size:20px}
+.tabs{display:flex;gap:8px;padding:0 14px;overflow:auto}
+.tab{padding:10px 16px;border-radius:20px;background:#1e293b;border:1px solid #334155;white-space:nowrap;cursor:pointer;font-size:13px}
+.tab.active{background:#3b82f6;color:#fff}
+.content{padding:14px}
+.employee{background:#1e293b;border-radius:12px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;border:1px solid #334155}
+.badge{padding:5px 8px;border-radius:6px;font-size:11px;font-weight:700}
+.day{background:#f59e0b22;color:#fbbf24}.night{background:#8b5cf622;color:#a78bfa}.off{background:#ef444422;color:#f87171}
+.btn{padding:6px 10px;border-radius:6px;border:none}
+.btn-primary{background:#3b82f6;color:#fff;width:100%;padding:14px;border-radius:12px;margin-top:10px;font-weight:700}
+.input{width:100%;padding:12px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#fff;margin:6px 0 10px}
+.att-day{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:7px;margin:2px;background:#1e293b;border:1px solid #334155;font-size:11px}
+.att-day.present{background:#22c55e33;border-color:#22c55e;color:#4ade80}
+.att-day.sunday{background:#ef444433}
+</style>
+</head>
+<body>
+<div class="header"><h1>IZIHIRWE PRO</h1><p>30 Staff | Day/Night | Sunday OFF</p></div>
+<div class="stats">
+<div class="card"><h3 id="totalEmp">0</h3><p>Total</p></div>
+<div class="card"><h3 id="dayShift">0</h3><p>Day</p></div>
+<div class="card"><h3 id="nightShift">0</h3><p>Night</p></div>
+</div>
+<div class="tabs">
+<div class="tab active" onclick="showTab('list',this)">👥 List</div>
+<div class="tab" onclick="showTab('add',this)">➕ Add</div>
+<div class="tab" onclick="showTab('attendance',this)">📅 Attendance</div>
+<div class="tab" onclick="showTab('payroll',this)">💰 Payroll</div>
+</div>
+<div class="content">
+<div id="
