@@ -1,53 +1,70 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="rw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>IZIHIRWE Pro Ultimate</title>
-<style>*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}body{background:#4a0a14;min-height:100vh;color:#4a0a14}
-.hidden{display:none!important}.login-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 16px;background:#4a0a14}
-.login-wrap img{width:200px;margin:20px 0 10px;background:white;padding:12px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
-.wel{color:#fff;text-align:center;margin-bottom:16px}.wel h1{font-size:38px;font-weight:800}.card{background:#fefcf9;width:100%;max-width:420px;border-radius:20px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-.badge-top{background:#fef3f2;border:1px solid #fca5a5;padding:6px 12px;border-radius:8px;font-size:11px;color:#7f1d1d;display:inline-flex;gap:6px;margin-bottom:12px;font-weight:600}
-.label{font-size:12px;font-weight:600;margin-bottom:4px;display:block}.inp{position:relative;margin-bottom:12px}
-.inp input{width:100%;padding:12px 12px 12px 40px;border-radius:12px;border:1.5px solid #e5c8c8;background:#fffdfd}
-.btn{width:100%;padding:14px;background:#4a0a14;color:white;border:none;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer}
-.app{background:#f5f3ef;min-height:100vh;color:#222}.topbar{background:#4a0a14;color:white;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
-.grid{padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.tile{background:white;padding:16px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;text-align:center}
-.tile b{display:block;font-size:13px;margin-top:8px}
-</style>
-</head>
-<body>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
+body{background:#4a0a14;min-height:100vh}
+.hidden{display:none!important}
+.login-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 16px;background:#4a0a14}
+.login-wrap img{width:220px;max-width:80vw;margin:10px 0 20px;background:white;padding:12px 18px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.25);object-fit:contain}
+.wel{color:#fff;text-align:center;margin-bottom:18px}.wel h1{font-size:42px;font-weight:900}
+.card{background:#fefcf9;width:100%;max-width:420px;border-radius:22px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.badge{background:#fef3f2;border:1px solid #fca5a5;padding:7px 14px;border-radius:20px;font-size:11px;color:#7f1d1d;display:inline-flex;font-weight:700;margin-bottom:14px}
+.label{font-size:12px;font-weight:700;margin-bottom:5px;display:block;color:#5a2a2a}
+.inp{position:relative;margin-bottom:14px}.inp i{position:absolute;left:13px;top:13px}
+.inp input{width:100%;padding:13px 13px 13px 42px;border-radius:12px;border:1.5px solid #e7caca;background:#fffdfd;font-size:14px}
+.btn{width:100%;padding:15px;background:#4a0a14;color:white;border:none;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer}
+.app{background:#f6f2ee;min-height:100vh;color:#2b2b2b}.topbar{background:#4a0a14;color:white;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0}
+.grid{padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tile{background:white;padding:18px 12px;border-radius:18px;box-shadow:0 4px 14px rgba(0,0,0,0.07);text-align:center;border:1px solid #f0e6e6;cursor:pointer}
+.tile b{font-size:12px;margin-top:10px;display:block;color:#4a0a14}
+.section{padding:16px}.box{background:white;border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06)}
+.box h3{color:#4a0a14;margin-bottom:10px;font-size:15px}.input{width:100%;padding:12px;border:1.5px solid #e6d0d0;border-radius:10px;margin:6px 0}
+.row{display:flex;gap:10px}.row>*{flex:1}.small{font-size:11px;color:#8a6a6a}.back{font-size:13px;color:#4a0a14;font-weight:700;cursor:pointer;margin-bottom:12px;display:inline-block}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:8px;border-bottom:1px solid #f0e6e6;text-align:left}th{background:#fdf2f2;color:#4a0a14}
+</style></head><body>
 <div id="loginPage" class="login-wrap">
-<img src="logo.png" alt="IZIHIRWE Pro" onerror="this.style.display='none'">
+<img src="logo.png" alt="IZIHIRWE Pro" onerror="this.outerHTML='<div style=\'background:white;color:#4a0a14;padding:14px 26px;border-radius:16px;font-weight:900;font-size:22px;margin:10px 0 20px\'>IZIHIRWE Pro</div>'">
 <div class="wel"><div>Mwiriwe</div><h1>INJIRA</h1><div>Injira na ID na PIN yawe</div></div>
-<div class="card">
-<div class="badge-top">🔒 Secure Employee Login</div>
-<div><span class="label">Employee ID</span><div class="inp"><span style="position:absolute;left:12px;top:13px">👤</span><input id="empId" value="IZP-000" placeholder="IZP-000"></div></div>
-<div><span class="label">PIN (4 digits)</span><div class="inp"><span style="position:absolute;left:12px;top:13px">🔑</span><input id="pin" type="password" value="0000" placeholder="0000"></div></div>
+<div class="card"><div class="badge">🔒 Secure Employee Login</div>
+<div><span class="label">Employee ID</span><div class="inp"><i>👤</i><input id="empId" value="IZP-000"></div></div>
+<div><span class="label">PIN (4 digits)</span><div class="inp"><i>🔑</i><input id="pin" type="password" value="0000"></div></div>
 <button class="btn" onclick="doLogin()">INJIRA / LOGIN →</button>
-<div style="text-align:center;font-size:11px;color:#7a5a5a;margin-top:12px">Demo Admin: IZP-000 / PIN: 0000<br>🔒 Your data is secure & encrypted</div>
-</div>
-</div>
-<div id="appPage" class="app hidden">
-<div class="topbar"><div><b>IZIHIRWE Pro</b><div style="font-size:11px;opacity:0.8" id="userInfo">Admin</div></div><button onclick="location.reload()" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 12px;border-radius:8px">Logout</button></div>
-<div class="grid">
-<div class="tile"><div style="font-size:28px">⏰</div><b>TIME IN / OUT</b></div>
-<div class="tile"><div style="font-size:28px">📦</div><b>PRODUCTION</b></div>
-<div class="tile"><div style="font-size:28px">💵</div><b>AVANCE</b></div>
-<div class="tile"><div style="font-size:28px">💰</div><b>PAYROLL</b></div>
-</div>
-<div style="padding:16px"><div style="background:white;border-radius:16px;padding:16px">
-<h3 style="color:#4a0a14">✅ App yawe iri Live!</h3>
-<p style="margin-top:8px;font-size:14px">Logo ubu iragaragara!<br>ID: IZP-000 Admin<br>https://didier123-4.github.io/izihirwe-pro-system/</p>
+<div style="text-align:center;font-size:11px;color:#7a5a5a;margin-top:14px">Demo Admin: IZP-000 / PIN: 0000<br>🔒 Your data is secure & encrypted</div>
 </div></div>
+<div id="appPage" class="app hidden">
+<div class="topbar"><div><b>IZIHIRWE Pro</b><div style="font-size:11px;opacity:0.85" id="userInfo">Admin • IZP-000</div></div><div style="display:flex;gap:8px"><span style="background:rgba(255,255,255,0.15);padding:6px 10px;border-radius:8px;font-size:11px" id="clockNow">--:--</span><button onclick="location.reload()" style="background:rgba(255,255,255,0.2);border:none;color:white;padding:7px 12px;border-radius:8px;font-size:12px">Logout</button></div></div>
+<div id="homeView">
+<div class="grid">
+<div class="tile" onclick="openSec('time')"><div style="font-size:32px">⏰</div><b>TIME IN / OUT</b><div class="small" id="timeStatus">Ntacyo</div></div>
+<div class="tile" onclick="openSec('prod')"><div style="font-size:32px">📦</div><b>PRODUCTION</b><div class="small">Umusaruro</div></div>
+<div class="tile" onclick="openSec('avance')"><div style="font-size:32px">💵</div><b>AVANCE</b><div class="small">Inguzanyo</div></div>
+<div class="tile" onclick="openSec('pay')"><div style="font-size:32px">💰</div><b>PAYROLL + REPORT</b><div class="small">Umushahara</div></div>
+</div>
+<div class="section"><div class="box"><h3>📊 Incamake y'Umunsi</h3><div id="todaySum" class="small">Nta data...</div></div>
+<div class="box" style="background:#4a0a14;color:white"><h3 style="color:white">🎉 FULL ULTIMATE iri Live!</h3><div style="font-size:12px">Logo ✅ | Time ✅ | Production ✅ | Avance ✅ | Payroll ✅<br>Link: didier123-4.github.io/izihirwe-pro-system/</div></div>
+</div></div>
+<div id="sec-time" class="section hidden"><span class="back" onclick="goHome()">← Subira</span><div class="box"><h3>⏰ Time Tracking</h3><div class="row"><button class="btn" onclick="timeIn()" style="background:#166534">TIME IN</button><button class="btn" onclick="timeOut()" style="background:#7f1d1d">TIME OUT</button></div><div id="timeLog" style="margin-top:12px"></div></div></div>
+<div id="sec-prod" class="section hidden"><span class="back" onclick="goHome()">← Subira</span><div class="box"><h3>📦 Production - Umusaruro</h3><input id="pDate" type="date" class="input"><div class="row"><input id="pQty" type="number" placeholder="Umubare" class="input"><input id="pPrice" type="number" placeholder="Igiciro" value="500" class="input"></div><button class="btn" onclick="addProd()">Emeza Production</button><div id="prodList" style="margin-top:12px"></div></div></div>
+<div id="sec-avance" class="section hidden"><span class="back" onclick="goHome()">← Subira</span><div class="box"><h3>💵 Avance - Inguzanyo</h3><input id="aDate" type="date" class="input"><input id="aAmt" type="number" placeholder="Amafaranga" class="input"><input id="aReason" placeholder="Impamvu" class="input"><button class="btn" onclick="addAvance()">Emeza Avance</button><div id="avanceList" style="margin-top:12px"></div></div></div>
+<div id="sec-pay" class="section hidden"><span class="back" onclick="goHome()">← Subira</span><div class="box"><h3>💰 Payroll & Report</h3><div class="row"><input id="payMonth" type="month" class="input"><button class="btn" onclick="calcPay()" style="width:auto">Bara</button></div><div id="payResult" style="margin-top:12px"></div><button class="btn" onclick="window.print()" style="background:#d4a017;margin-top:10px">📄 Print Report</button></div></div>
 </div>
 <script>
-function doLogin(){
- const id=document.getElementById('empId').value.trim();
- const pin=document.getElementById('pin').value.trim();
- if(id==='IZP-000' && pin==='0000'){
-   document.getElementById('loginPage').classList.add('hidden');
-   document.getElementById('appPage').classList.remove('hidden');
- }else{alert('Koresha Demo: IZP-000 / 0000');}
-}
-</script>
-</body>
-</html>
+let db=JSON.parse(localStorage.getItem('izp_db')||'{"time":[],"prod":[],"avance":[]}');
+function save(){localStorage.setItem('izp_db',JSON.stringify(db));updateHome();}
+function doLogin(){if(document.getElementById('empId').value.trim()==='IZP-000'&&document.getElementById('pin').value.trim()==='0000'){document.getElementById('loginPage').classList.add('hidden');document.getElementById('appPage').classList.remove('hidden');updateHome();renderAll();startClock();}else alert('Koresha: IZP-000 / 0000');}
+function openSec(n){document.getElementById('homeView').classList.add('hidden');['time','prod','avance','pay'].forEach(k=>document.getElementById('sec-'+k).classList.add('hidden'));document.getElementById('sec-'+n).classList.remove('hidden');}
+function goHome(){['time','prod','avance','pay'].forEach(k=>document.getElementById('sec-'+k).classList.add('hidden'));document.getElementById('homeView').classList.remove('hidden');updateHome();}
+function timeIn(){db.time.push({type:'IN',at:new Date().toLocaleString()});save();renderTime();alert('TIME IN ✅');}
+function timeOut(){db.time.push({type:'OUT',at:new Date().toLocaleString()});save();renderTime();alert('TIME OUT ✅');}
+function renderTime(){document.getElementById('timeLog').innerHTML=db.time.slice(-10).reverse().map(t=>`<div style='display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee'><b>${t.type}</b><span>${t.at}</span></div>`).join('')||'<div class=small>Nta time</div>';document.getElementById('timeStatus').innerText=db.time.length?db.time[db.time.length-1].type+' - '+db.time[db.time.length-1].at:'';}
+function addProd(){const d=document.getElementById('pDate').value||new Date().toISOString().slice(0,10);const q=parseFloat(document.getElementById('pQty').value||0);const pr=parseFloat(document.getElementById('pPrice').value||0);if(!q)return alert('Umubare?');db.prod.push({date:d,qty:q,price:pr,total:q*pr});save();renderProd();document.getElementById('pQty').value='';}
+function renderProd(){document.getElementById('prodList').innerHTML='<table><tr><th>Date</th><th>Qty</th><th>Total</th></tr>'+db.prod.slice(-20).reverse().map(p=>`<tr><td>${p.date}</td><td>${p.qty}</td><td>${p.total.toLocaleString()}</td></tr>`).join('')+'</table><b>Total: '+db.prod.reduce((s,p)=>s+p.total,0).toLocaleString()+' Rwf</b>';}
+function addAvance(){const d=document.getElementById('aDate').value||new Date().toISOString().slice(0,10);const a=parseFloat(document.getElementById('aAmt').value||0);const r=document.getElementById('aReason').value||'';if(!a)return alert('Amafaranga?');db.avance.push({date:d,amt:a,reason:r});save();renderAvance();document.getElementById('aAmt').value='';}
+function renderAvance(){document.getElementById('avanceList').innerHTML='<table><tr><th>Date</th><th>Amt</th><th>Reason</th></tr>'+db.avance.slice(-20).reverse().map(x=>`<tr><td>${x.date}</td><td>${x.amt.toLocaleString()}</td><td>${x.reason}</td></tr>`).join('')+'</table><b>Total Avance: '+db.avance.reduce((s,x)=>s+x.amt,0).toLocaleString()+' Rwf</b>';}
+function calcPay(){const tp=db.prod.reduce((s,p)=>s+p.total,0);const ta=db.avance.reduce((s,a)=>s+a.amt,0);document.getElementById('payResult').innerHTML=`<div style='background:#fefcf9;border:1px solid #f0d0d0;border-radius:12px;padding:12px'><div style='display:flex;justify-content:space-between'><span>Production:</span><b>${tp.toLocaleString()} Rwf</b></div><div style='display:flex;justify-content:space-between'><span>Avance:</span><b style='color:#7f1d1d'>-${ta.toLocaleString()} Rwf</b></div><hr style='margin:8px 0'><div style='display:flex;justify-content:space-between;font-size:16px'><span>NET PAY:</span><b style='color:#166534'>${(tp-ta).toLocaleString()} Rwf</b></div></div>`;}
+function renderAll(){renderTime();renderProd();renderAvance();calcPay();}
+function updateHome(){const tp=db.prod.reduce((s,p)=>s+p.total,0);const ta=db.avance.reduce((s,a)=>s+a.amt,0);document.getElementById('todaySum').innerHTML=`Production: <b>${tp.toLocaleString()} Rwf</b> | Avance: <b>${ta.toLocaleString()} Rwf</b> | Net: <b>${(tp-ta).toLocaleString()} Rwf</b><br>Time: ${db.time.length} entries | Prod: ${db.prod.length} | Avance: ${db.avance.length}`;}
+function startClock(){setInterval(()=>{document.getElementById('clockNow').innerText=new Date().toLocaleTimeString();},1000);}
+document.getElementById('pDate').valueAsDate=new Date();document.getElementById('aDate').valueAsDate=new Date();
+</script></body></html>
