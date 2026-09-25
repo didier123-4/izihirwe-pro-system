@@ -1,61 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="rw">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IZP V7</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IZP V7 - FULL</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#0f172a;color:#fff;padding:12px}
 .card{background:#1e293b;border-radius:12px;padding:14px;margin:10px 0;border-left:4px solid #3b82f6}
-.btn{padding:12px;width:100%;border:none;border-radius:8px;font-weight:bold;margin:6px 0}
-.blue{background:#3b82f6;color:#fff}
-.green{background:#22c55e;color:#fff}
-.red{background:#ef4444;color:#fff}
-.orange{background:#f59e0b;color:#fff}
+.btn{padding:12px;width:100%;border:none;border-radius:8px;font-weight:bold;margin:6px 0;cursor:pointer}
+.blue{background:#3b82f6;color:#fff}.green{background:#22c55e;color:#fff}.red{background:#ef4444;color:#fff}.orange{background:#f59e0b;color:#fff}
 .input{width:100%;padding:13px;background:#0f172a;color:#fff;border:1px solid #334155;border-radius:8px;margin:7px 0}
-.logo{width:80px;height:80px;margin:0 auto 12px;background:linear-gradient(135deg,#f59e0b,#3b82f6);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:bold}
-.hidden{display:none}
-.tab{padding:8px 10px;background:#1e293b;border-radius:8px;display:inline-block;margin:2px;font-size:11px}
-.active{background:#3b82f6}
+.logo{width:90px;height:90px;margin:0 auto 12px;background:linear-gradient(135deg,#f59e0b,#3b82f6);border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:bold;box-shadow:0 4px 20px rgba(245,158,11,.4)}
+.hidden{display:none}.tab{padding:8px 10px;background:#1e293b;border-radius:8px;display:inline-block;margin:2px;font-size:11px;cursor:pointer}.active{background:#3b82f6}
+.day{border-left-color:#f59e0b!important;background:#451a03}.night{border-left-color:#3b82f6!important;background:#1e1b4b}.present{border-left-color:#22c55e!important;background:#14532d}
+.badge{padding:3px 8px;border-radius:12px;font-size:10px;font-weight:bold}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.calendar{display:flex;flex-wrap:wrap;gap:3px;margin-top:8px}
+.dbox{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:5px;background:#334155;font-size:10px;cursor:pointer}
+.dbox.pre{background:#22c55e}.dbox.off{background:#ef4444;opacity:.7}.dbox.sunwork{background:#22c55e;border:2px solid #f59e0b}
 </style>
 </head>
 <body>
 
-<!-- LOGIN + LOGO -->
+<!-- 1️⃣ LOGIN + LOGO -->
 <div id="d1" class="card" style="text-align:center;border-left-color:#f59e0b">
 <div class="logo">IZP</div>
 <h2 style="color:#f59e0b">IZ PLAST LTD</h2>
 <p style="color:#94a3b8;font-size:12px">Factory Management V7 - 6 Dashboards</p>
+<p style="color:#64748b;font-size:10px">Kigali, Rwanda</p>
 <div style="text-align:left;margin-top:20px">
-<h3 style="text-align:center">🔒 LOGIN</h3>
-<input id="lid" class="input" placeholder="ID: ADMIN">
-<input id="lpin" class="input" type="password" placeholder="PIN: 1234">
-<button class="btn blue" onclick="login()">INJIRA</button>
-<p id="msg" style="text-align:center;color:#f59e0b"></p>
-<div style="background:#0f172a;padding:8px;border-radius:6px;font-size:10px">ADMIN/1234=Manager | EMP1/1234=Employee</div>
-</div>
-</div>
-
-<div id="nav" class="hidden" style="text-align:center">
-<span class="tab active" onclick="sh(2)">Team</span>
-<span class="tab" onclick="sh(3)">Att</span>
-<span class="tab" onclick="sh(4)">Time</span>
-<span class="tab" onclick="sh(5)">Prod</span>
-<span class="tab" onclick="sh(6)">Payroll</span>
-<button class="btn red" onclick="logout()" style="width:auto;padding:6px 10px;float:right">Sohoka</button>
-<div style="clear:both"></div>
-</div>
-
-<div id="d2" class="card hidden"><h3>2️⃣ TEAM</h3><div id="team"></div><input id="n" class="input" placeholder="Izina"><select id="s" class="input"><option value="DAY">☀️ DAY</option><option value="NIGHT">🌙 NIGHT</option></select><input id="sal" class="input" type="number" placeholder="Salary"><button class="btn green" onclick="add()">Add Staff</button></div>
-<div id="d3" class="card hidden"><h3>3️⃣ ATT - Sunday OFF Exception</h3><div id="att"></div></div>
-<div id="d4" class="card hidden"><h3>4️⃣ TIME - Employee Only</h3><input id="q" class="input" placeholder="ID"><button class="btn green" onclick="tin()">TIME IN</button><button class="btn red" onclick="tout()">TIME OUT</button><div id="log"></div></div>
-<div id="d5" class="card hidden"><h3>5️⃣ PROD & AVANCE</h3><div id="prod"></div></div>
-<div id="d6" class="card hidden"><h3>6️⃣ PAYROLL - Breakdown + Avance Detail</h3><div id="pay"></div><div id="detail" class="card hidden" style="background:#0f172a;border:2px solid #f59e0b"></div></div>
-
-<script>
-let E=[{id:'ADMIN',name:'Didier',sal:100000,sh:'DAY',pr:false,att:{},prod:[],av:[]},{id:'EMP1',name:'Jean',sal:80000,sh:'NIGHT',pr:false,att:{},prod:[],av:[]}];let L=[];
-function login(){let id=document.getElementById('lid').value.toUpperCase();let p=document.getElementById('lpin').value;if((id=='ADMIN'||id=='EMP1')&&p=='1234'){document.getElementById('d1').classList.add('hidden');if(id=='ADMIN'){document.getElementById('nav').classList.remove('hidden');sh(2)}else{document.getElementById('d4').classList.remove('hidden')}}else{document.getElementById('msg').innerText='PIN siyo! ADMIN/1234'}}
-function logout(){document.getElementById('d1').classList.remove('hidden');document.getElementById('nav').classList.add('hidden');[2,3,4,5,6].forEach(n=>document.getElementById('d'+n).classList.add('hidden'))}
-function sh(n){[2,3,4,5,6].forEach(i=>document.getElementById('d'+i).classList.add('hidden'));document.getElementById('d'+n).classList.remove('hidden');if(n==2)rt();if(n==3)ra();if(n==5)rp();if(n==6)ry()}
-function add(){let name=document.getElementById('n').value;let sh=document.getElementById('s').value;let sal=parseInt(document.getElementById('sal').value)||0;if(!name)return;E.push({id:'IZP-'+E.length,name,sal,
+<h3 style="text-align:center">🔒 LOGIN D
