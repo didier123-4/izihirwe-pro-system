@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="rw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IZIHIRWE Pro V7 FINAL - Role Based</title>
+<title>IZIHIRWE Pro V7 FINAL</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4a0a14">
+<link rel="apple-touch-icon" href="logo.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
 body{background:#4a0a14;min-height:100vh;color:#fff}
@@ -21,24 +24,23 @@ body{background:#4a0a14;min-height:100vh;color:#fff}
 .badge-status{padding:4px 8px;border-radius:10px;font-size:10px;font-weight:800}.status-in{background:#dcfce7;color:#166534}.status-out{background:#fee2e2;color:#991b1b}
 .shift-opt{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0}.shift-btn{padding:11px;border:2px solid #e7caca;border-radius:12px;background:white;text-align:center;cursor:pointer;font-weight:700;font-size:12px}.shift-btn.active{border-color:#4a0a14;background:#4a0a14;color:white}.shift-btn.day.active{background:#f59e0b;border-color:#f59e0b}.shift-btn.night.active{background:#1e1b4b;border-color:#1e1b4b}
 .input{width:100%;padding:11px;border:1.5px solid #e6d0d0;border-radius:8px;margin:4px 0;font-size:13px}
-.att-day{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;margin:2px;background:#f6f2ee;border:1px solid #eee;font-size:10px;font-weight:600;cursor:pointer}.att-day.present{background:#16a34a;color:white}.att-day.sunday{background:#ef4444;color:white;opacity:.6}.att-day.sunday.allowed{background:#f59e0b;color:white;opacity:1}
+.att-day{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;margin:2px;background:#f6f2ee;border:1px solid #eee;font-size:10px;font-weight:600;cursor:pointer}.att-day.present{background:#16a34a;color:white}.att-day.sunday{background:#ef4444;color:white;opacity:.6}
 .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px}.modal-box{background:white;border-radius:18px;padding:18px;width:100%;max-width:380px;color:#2b2b2b;max-height:85vh;overflow-y:auto}
 </style></head><body>
 <div id="loginPage" class="login-wrap">
 <img src="logo.png" class="logo-img" alt="IZIHIRWE Pro">
-<div class="wel"><h1>INJIRA</h1><div>Injira na ID na PIN yawe</div><div style="font-size:11px;margin-top:6px;opacity:.8">IZIHIRWE Pro - 6 Dashboards - Role Based</div></div>
+<div class="wel"><h1>INJIRA</h1><div>Injira na ID na PIN yawe</div><div style="font-size:11px;margin-top:6px;opacity:.8">IZIHIRWE Pro - 6 Dashboards - Role Based - PWA App</div></div>
 <div class="card">
 <div class="badge">🔒 Secure Employee Login</div>
 <div class="inp"><label>Employee ID</label><input id="empId" value="ADMIN" placeholder="ADMIN cyangwa EMP1"></div>
 <div class="inp"><label>PIN (4 digits)</label><input id="pin" type="password" value="1234" placeholder="1234"></div>
 <button class="btn" onclick="doLogin()">INJIRA / LOGIN →</button>
 <div style="font-size:11px;color:#8a6a6a;text-align:center;margin-top:12px;line-height:1.5">
-<b>ADMIN / 1234</b> = Manager → 6 Dashboards zose<br>
-<b>EMP1 / 1234</b> = Umukozi → Time gusa (Dashboard 4)<br>
-🔒 Sunday OFF ibikosoye - Logo yibukwe
+<b>ADMIN / 1234</b> = Manager → 6 Dashboards<br>
+<b>EMP1 / 1234</b> = Umukozi → Time gusa<br>
+📱 Iza muri fone nka App - Install
 </div>
 </div></div>
-
 <div id="appPage" class="app hidden">
 <div class="topbar"><div style="display:flex;gap:8px;align-items:center"><img src="logo.png" style="width:34px;height:34px;background:white;border-radius:8px;padding:3px"><div><b id="userRoleLabel">IZIHIRWE Pro</b><div style="font-size:9px;opacity:.8" id="roleDesc">Manager - 6 Dashboards</div></div></div><div style="display:flex;gap:6px"><span id="clockNow" style="background:rgba(255,255,255,.15);padding:5px 8px;border-radius:8px;font-size:10px">--:--</span><button onclick="location.reload()" style="background:rgba(255,255,255,.2);border:none;color:white;padding:5px 10px;border-radius:8px;font-size:11px">Logout</button></div></div>
 <div class="tabs" id="tabsBar">
@@ -47,85 +49,4 @@ body{background:#4a0a14;min-height:100vh;color:#fff}
 <div class="tab" data-role="all" onclick="showTab('time',this)">⏰ Time</div>
 <div class="tab" data-role="admin" onclick="showTab('prod',this)">📦 Prod</div>
 <div class="tab" data-role="admin" onclick="showTab('avance',this)">💳 Avance</div>
-<div class="tab" data-role="admin" onclick="showTab('pay',this)">💰 Payroll</div>
-</div>
-
-<div id="tab-team" class="section"><div class="box"><h3>📊 Day vs Night - nkuko twabikosoye</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div style="background:#fef3c7;padding:12px;border-radius:10px;text-align:center"><div style="font-size:10px">☀️ AMANYWA</div><b id="dayCount" style="font-size:20px">0</b><br><b id="dayPresent" style="color:#16a34a;font-size:11px">0 baje</b></div><div style="background:#e0e7ff;padding:12px;border-radius:10px;text-align:center"><div style="font-size:10px">🌙 IJORO</div><b id="nightCount" style="font-size:20px">0</b><br><b id="nightPresent" style="color:#16a34a;font-size:11px">0 baje</b></div></div></div><div class="box"><h3>➕ Add - Hitamo Shift ye</h3><input id="newName" placeholder="Amazina" class="input"><input id="newPhone" placeholder="078..." class="input"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0"><div id="sDay" class="shift-btn day active" onclick="setNewShift('DAY')">☀️ AMANYWA<br><span style="font-size:10px">6h-18h</span></div><div id="sNight" class="shift-btn night" onclick="setNewShift('NIGHT')">🌙 IJORO<br><span style="font-size:10px">18h-6h</span></div></div><div style="display:flex;gap:6px"><input id="newSalary" type="number" value="60000" class="input"><button class="btn" onclick="addEmployee()" style="width:130px">Save ✅</button></div></div><div class="box"><h3>👥 Team - Yaje bitewe na shift arimo</h3><div id="teamList"></div></div></div>
-
-<div id="tab-att" class="section hidden"><div class="box"><h3>📅 Attendance - Sunday Exception Bikosoye 🔴</h3><p style="font-size:11px;color:#666;margin-bottom:8px">Default OFF, ariko ushobora kuyikanda → Ibaza "Ushaka ko akora?" YES → Yemerewe ✅</p><div id="attCalendar"></div></div></div>
-
-<div id="tab-time" class="section hidden"><div class="box"><h3>⏰ Time IN/OUT - Dashboard 4 (Abakozi babona iyi gusa)</h3><input id="timeEmp" placeholder="ID cyangwa Izina" class="input"><div style="display:flex;gap:6px"><button class="btn" onclick="timeIn()" style="background:#166534">✅ TIME IN - Yaje</button><button class="btn" onclick="timeOut()" style="background:#7f1d1d">❌ TIME OUT</button></div><div id="timeLog" style="margin-top:12px"></div></div></div>
-
-<div id="tab-prod" class="section hidden"><div class="box"><h3>📦 Production per Shift</h3><input id="pDate" type="date" class="input"><input id="pEmp" placeholder="ID" class="input"><div style="display:flex;gap:6px"><input id="pQty" type="number" placeholder="Qty" class="input"><input id="pPrice" type="number" value="500" class="input"></div><select id="pShift" class="input"><option value="DAY">☀️ AMANYWA</option><option value="NIGHT">🌙 IJORO</option></select><button class="btn" onclick="addProd()">Emeza</button><div id="prodList" style="margin-top:12px"></div></div></div>
-
-<div id="tab-avance" class="section hidden"><div class="box"><h3>💳 Avance - List n'amatariki</h3><input id="aEmp" placeholder="ID / Izina" class="input"><input id="aAmount" type="number" placeholder="Amount RWF" class="input"><input id="aReason" placeholder="Impamvu" class="input"><button class="btn" onclick="addAvance()">Emeza Avance</button><div id="avanceList" style="margin-top:12px"></div></div></div>
-
-<div id="tab-pay" class="section hidden"><div class="box"><h3>💰 Payroll - Kanda kuri buri mukozi ubone details</h3><button class="btn" onclick="calcPay()">Bara Payroll</button><div id="payResult" style="margin-top:12px"></div><button class="btn" onclick="window.print()" style="background:#d4a017;margin-top:10px">🖨️ Print</button></div></div>
-</div>
-
-<div id="payModal" class="modal hidden"><div class="modal-box"><h3 style="color:#4a0a14">💰 Urutonde rw'Umushahara</h3><div id="modalContent" style="margin-top:10px;font-size:12px"></div><button class="btn" onclick="closeModal()" style="background:#eee;color:#333;margin-top:12px">Funga</button><button class="btn" onclick="hemba()" style="margin-top:8px;background:#16a34a">💵 HEMBA ✅</button></div></div>
-
-<script>
-let newShift='DAY';let currentRole='admin';
-let db=JSON.parse(localStorage.getItem('izp_v7_final_role')||'{"employees":[{"id":1,"name":"Didier Admin","phone":"0788000000","shift":"DAY","salary":60000,"att":{}},{"id":2,"name":"EMP1 Jean","phone":"0788111111","shift":"DAY","salary":60000,"att":{}}],"time":[],"prod":[],"avance":[],"paid":[]}');
-function save(){localStorage.setItem('izp_v7_final_role',JSON.stringify(db));updateCounts();}
-function setNewShift(s){newShift=s;document.getElementById('sDay').classList.toggle('active',s==='DAY');document.getElementById('sNight').classList.toggle('active',s==='NIGHT');}
-function doLogin(){
-let u=document.getElementById('empId').value.trim().toUpperCase();
-let p=document.getElementById('pin').value.trim();
-if((u==='ADMIN'&&p==='1234')||(u==='IZP-000'&&p==='0000')){
-currentRole='admin';document.getElementById('userRoleLabel').innerText='IZIHIRWE Pro - ADMIN';document.getElementById('roleDesc').innerText='Manager - 6 Dashboards zose';
-document.querySelectorAll('.tab').forEach(t=>t.style.display='block');
-}else if(u==='EMP1'&&p==='1234'){
-currentRole='employee';document.getElementById('userRoleLabel').innerText='EMP1 - Umukozi';document.getElementById('roleDesc').innerText='Employee - Time gusa';
-document.querySelectorAll('.tab').forEach(t=>{if(t.dataset.role==='admin')t.style.display='none';else t.style.display='block';});
-}else{alert('ADMIN / 1234 = Manager\\nEMP1 / 1234 = Umukozi');return;}
-document.getElementById('loginPage').classList.add('hidden');document.getElementById('appPage').classList.remove('hidden');
-if(currentRole==='employee'){showTab('time',document.querySelector('[data-role=all]')); }else{renderTeam();showTab('team',document.querySelector('.tab'));}
-renderAtt();renderTime();renderProd();renderAvance();calcPay();startClock();
-}
-function showTab(t,el){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));if(el)el.classList.add('active');['team','att','time','prod','avance','pay'].forEach(k=>document.getElementById('tab-'+k).classList.add('hidden'));document.getElementById('tab-'+t).classList.remove('hidden');if(t==='att')renderAtt();}
-function addEmployee(){if(currentRole!=='admin')return alert('Admin gusa!');let n=document.getElementById('newName').value.trim();if(!n)return alert('Amazina?');db.employees.push({id:Date.now(),name:n,phone:document.getElementById('newPhone').value,shift:newShift,salary:parseInt(document.getElementById('newSalary').value)||60000,att:{}});document.getElementById('newName').value='';save();renderTeam();renderAtt();}
-function togglePresent(id){let e=db.employees.find(x=>x.id===id);let k=new Date().getFullYear()+'-'+new Date().getMonth()+'-'+new Date().getDate();e.att[k]=!e.att[k];save();renderTeam();renderAtt();}
-function renderTeam(){let k=new Date().getFullYear()+'-'+new Date().getMonth()+'-'+new Date().getDate();let h='';db.employees.forEach(emp=>{let pr=emp.att[k];h+=`<div class="employee ${emp.shift.toLowerCase()} ${pr?'present':''}"><div><b style="font-size:12px">${emp.name}</b> <span class="badge-shift ${emp.shift==='DAY'?'badge-day':'badge-night'}">${emp.shift}</span><div style="font-size:10px;color:#666">${emp.phone} • ${emp.salary.toLocaleString()} RWF</div><div style="margin-top:3px">${pr?'<span class="badge-status status-in">✅ YAJE - '+emp.shift+'</span>':'<span class="badge-status status-out">❌ NTABAJE</span>'}</div></div><button onclick="togglePresent(${emp.id})" style="border:none;background:${pr?'#fee2e2':'#dcfce7'};padding:6px 10px;border-radius:8px;font-size:11px">${pr?'❌':'✅'}</button></div>`});document.getElementById('teamList').innerHTML=h;updateCounts();}
-function updateCounts(){let dA=db.employees.filter(e=>e.shift==='DAY').length;let nA=db.employees.filter(e=>e.shift==='NIGHT').length;let k=new Date().getFullYear()+'-'+new Date().getMonth()+'-'+new Date().getDate();let dP=db.employees.filter(e=>e.shift==='DAY'&&e.att[k]).length;let nP=db.employees.filter(e=>e.shift==='NIGHT'&&e.att[k]).length;document.getElementById('teamCount').innerText=db.employees.length;document.getElementById('dayCount').innerText=dA;document.getElementById('nightCount').innerText=nA;document.getElementById('dayPresent').innerText=dP+' baje';document.getElementById('nightPresent').innerText=nP+' baje';}
-function renderAtt(){let now=new Date();let y=now.getFullYear(),m=now.getMonth();let days=new Date(y,m+1,0).getDate();let html='';db.employees.forEach(emp=>{html+=`<div class="box"><b style="font-size:11px">${emp.name}</b> <span class="badge-shift ${emp.shift==='DAY'?'badge-day':'badge-night'}">${emp.shift}</span><div style="margin-top:6px">`;for(let d=1;d<=days;d++){let dt=new Date(y,m,d);let isSun=dt.getDay()===0;let key=`${y}-${m}-${d}`;let isPresent=emp.att[key];let cls=isPresent?'present':isSun?'sunday':'';if(isSun&&isPresent)cls='present';html+=`<div class="att-day ${cls}" onclick="markAtt(${emp.id},'${key}',${isSun})">${isSun&&!isPresent?'OFF':d}</div>`;}html+=`</div></div>`;});document.getElementById('attCalendar').innerHTML=html;}
-function markAtt(id,key,isSun){
-let e=db.employees.find(x=>x.id===id);
-if(isSun&&!e.att[key]){
-if(!confirm('🔴 Sunday default OFF!\\nUshaka ko '+e.name+' akora kuri iki Cyumweru?\\nYES = Akora, NO = OFF'))return;
-}
-e.att[key]=!e.att[key];save();renderAtt();renderTeam();
-}
-function timeIn(){let e=db.employees.find(x=>x.name.includes('EMP1'))||db.employees[0];let k=new Date().getFullYear()+'-'+new Date().getMonth()+'-'+new Date().getDate();e.att[k]=true;db.time.push({emp:e.name,shift:e.shift,type:'IN',at:new Date().toLocaleString()});save();renderTeam();renderTime();alert('✅ '+e.name+' YAJE - '+e.shift);}
-function timeOut(){db.time.push({emp:db.employees[0].name,shift:db.employees[0].shift,type:'OUT',at:new Date().toLocaleString()});save();renderTime();}
-function renderTime(){document.getElementById('timeLog').innerHTML=db.time.slice(-20).reverse().map(t=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:11px"><div><b>${t.emp}</b> <span class="badge-shift ${t.shift==='DAY'?'badge-day':'badge-night'}">${t.shift} ${t.type}</span></div><span>${t.at}</span></div>`).join('')||'Nta log';}
-function addProd(){let d=document.getElementById('pDate').value||new Date().toISOString().slice(0,10);let q=parseFloat(document.getElementById('pQty').value||0);let pr=parseFloat(document.getElementById('pPrice').value||0);let s=document.getElementById('pShift').value;let emp=document.getElementById('pEmp').value||'Admin';if(!q)return alert('Qty?');db.prod.push({date:d,emp,qty:q,price:pr,total:q*pr,shift:s});save();renderProd();}
-function renderProd(){let tot=db.prod.reduce((s,p)=>s+p.total,0);document.getElementById('prodList').innerHTML=db.prod.slice(-15).reverse().map(p=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:11px"><span>${p.date} ${p.emp} <span class="badge-shift ${p.shift==='DAY'?'badge-day':'badge-night'}">${p.shift}</span></span><b>${p.total.toLocaleString()}</b></div>`).join('')+`<div style="background:#4a0a14;color:white;padding:8px;border-radius:8px;margin-top:8px;font-size:12px"><b>Total: ${tot.toLocaleString()} RWF</b></div>`;}
-function addAvance(){let emp=document.getElementById('aEmp').value||'Staff';let amt=parseFloat(document.getElementById('aAmount').value||0);if(!amt)return alert('Amount?');db.avance.push({emp,amount:amt,reason:document.getElementById('aReason').value,date:new Date().toLocaleDateString(),time:new Date().toLocaleString()});save();renderAvance();}
-function renderAvance(){let tot=db.avance.reduce((s,a)=>s+a.amount,0);document.getElementById('avanceList').innerHTML=db.avance.slice(-15).reverse().map(a=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:11px"><span>${a.date} ${a.emp} - ${a.reason}</span><b>${a.amount.toLocaleString()}</b></div>`).join('')+`<div style="background:#fef3c7;padding:8px;border-radius:8px;margin-top:8px"><b>Total Avance: ${tot.toLocaleString()} RWF</b></div>`;}
-function calcPay(){
-let html='';
-db.employees.forEach(emp=>{
-let days=Object.values(emp.att).filter(v=>v).length;
-let daily=Math.round(emp.salary/26);
-let gross=daily*days;
-let prodBonus=db.prod.filter(p=>p.emp.toLowerCase().includes(emp.name.toLowerCase())).reduce((s,p)=>s+p.total*0.02,0);
-let empAvance=db.avance.filter(a=>a.emp.toLowerCase().includes(emp.name.toLowerCase())||a.emp===String(emp.id));
-let avanceTot=empAvance.reduce((s,a)=>s+a.amount,0);
-let final=gross+prodBonus-avanceTot;
-html+=`<div onclick="openPayDetail(${emp.id})" style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee;cursor:pointer"><div><b style="font-size:12px">${emp.name}</b> <span class="badge-shift ${emp.shift==='DAY'?'badge-day':'badge-night'}">${emp.shift}</span><br><span style="font-size:10px;color:#666">${days} days x ${daily.toLocaleString()} = ${gross.toLocaleString()} | Bonus ${prodBonus.toLocaleString()} | Avance ${avanceTot.toLocaleString()}</span></div><div style="text-align:right"><b>${final.toLocaleString()}</b><div style="font-size:10px;color:#4a0a14">Kanda ubone details →</div></div></div>`;
-});
-document.getElementById('payResult').innerHTML=html||'Nta payroll';
-}
-let selectedEmp=null;
-function openPayDetail(id){
-let emp=db.employees.find(e=>e.id===id);selectedEmp=emp;
-let days=Object.values(emp.att).filter(v=>v).length;
-let daily=Math.round(emp.salary/26);
-let gross=daily*days;
-let prodBonus=db.prod.filter(p=>p.emp.toLowerCase().includes(emp.name.toLowerCase())).reduce((s,p)=>s+p.total*0.02,0);
-let empAvance=db.avance.filter(a=>a.emp.toLowerCase().includes(emp.name.toLowerCase()));
-let avanceTot=empAvance.reduce((s,a)=>s+a.amount,0);
-let final=gross+prodBonus-avanceTot;
-let avanceList=empAvance.map(a=>`<div style="display:flex;justify-content:space-bet
+<div class="tab" data-role="admin" onclick
