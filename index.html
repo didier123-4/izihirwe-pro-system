@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HAPPY V7.13.1 COMPLETE</title>
+<title>HAPPY V7.13.2 DELETE</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
 body{background:#0f172a;color:#e2e8f0;min-height:100vh}
 .card{background:#1e293b;border:1px solid #334155;padding:26px;border-radius:22px;width:90%;max-width:420px;text-align:center;margin:20px auto}
 input,select{width:100%;padding:13px;border-radius:11px;border:1px solid #334155;background:#0f172a;color:#fff;margin-bottom:8px}
 .btn{width:100%;padding:16px;border:none;border-radius:12px;font-weight:900;cursor:pointer;font-size:14px;touch-action:manipulation}
+.btn-del{padding:6px 10px;border-radius:8px;border:none;background:#ef4444;color:#fff;font-weight:800;font-size:11px;cursor:pointer}
 .header{padding:10px 14px;display:flex;justify-content:space-between;border-bottom:1px solid #1e293b;align-items:center}
 .nav{display:flex;gap:6px;overflow:auto;padding:10px 12px;background:#0f172a;position:sticky;top:0;z-index:9}
 .nav button{padding:11px 18px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-weight:800;font-size:13px;white-space:nowrap}
@@ -29,22 +30,20 @@ th{background:#0f172a;color:#94a3b8}
 
 <div id="L" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px">
 <div class="card">
-<h2>HAPPY V7.13.1 COMPLETE</h2>
-<p style="color:#22c55e;font-size:11px;margin:6px 0 14px">✅ BYOSE BIHARI + PERSISTENT - Login 100%</p>
+<h2>HAPPY V7.13.2 DELETE</h2>
+<p style="color:#22c55e;font-size:11px;margin:6px 0 14px">✅ BYOSE + 🗑️ SIBA UMUKOZI</p>
 <input id="u" value="ADMIN" placeholder="ADMIN cyangwa IZP-001">
-<input id="p" type="password" value="1234" placeholder="PIN 1234 cyangwa 1001">
+<input id="p" type="password" value="1234" placeholder="PIN">
 <button id="btnE" class="btn" style="background:#38bdf8;color:#0f172a;margin-bottom:10px">ENTRANCE</button>
 <button id="btnF" class="btn" style="background:#22c55e;color:#fff">🔓 FORCE ENTER</button>
-<p style="font-size:10px;color:#94a3b8;margin-top:12px">ADMIN/1234 | IZP-001/1001 | IZP-002/1002...</p>
-<p style="font-size:9px;color:#64748b;margin-top:4px" id="status">Auto-open muri 3sec - Abakozi babikwa muri phone</p>
+<p style="font-size:9px;color:#94a3b8;margin-top:8px">ADMIN/1234 | IZP-001/1001...</p>
 </div>
 </div>
 
 <div id="A" style="display:none">
 <div class="header">
-<div><b>V7.13.1</b> <span id="badge" style="background:#38bdf8;color:#0f172a;padding:3px 8px;border-radius:999px;font-size:10px">ADMIN</span> <span id="mHead" style="font-size:11px;color:#22c55e;margin-left:6px"></span></div>
-<button onclick="localStorage.clear();location.reload()" style="padding:5px 10px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#ef4444;font-size:10px;margin-right:6px">Siba Cache</button>
-<button onclick="location.reload()" style="padding:7px 14px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#fff">Logout</button>
+<div><b>V7.13.2</b> <span id="badge" style="background:#38bdf8;color:#0f172a;padding:3px 8px;border-radius:999px;font-size:10px">ADMIN</span> <span id="mHead" style="font-size:11px;color:#22c55e;margin-left:6px"></span></div>
+<div><button onclick="localStorage.clear();location.reload()" style="padding:5px 10px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#ef4444;font-size:10px;margin-right:6px">Siba Cache</button><button onclick="location.reload()" style="padding:7px 14px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#fff">Logout</button></div>
 </div>
 
 <div class="nav">
@@ -61,8 +60,8 @@ th{background:#0f172a;color:#94a3b8}
 <div id="payTab" style="display:none"><div class="box"><h3>💰 Payroll FINAL = Salary - Avance | <span id="payM"></span></h3><div id="paySum"></div></div><div id="payTable"></div></div>
 <div id="avTab" style="display:none"><div class="box"><h3>💸 Avance | <span id="avM"></span></h3><div id="avStats"></div></div><div class="box" style="border:2px solid #38bdf8"><h3>👑 ADMIN - Emeza / Anga</h3><div id="adminAvList"></div></div></div>
 <div id="setTab" style="display:none">
-<div class="box" style="border:2px solid #38bdf8"><h3>👑 1. Kongeramo ADMIN - Bihari!</h3><input id="aN" placeholder="Amazina y'Admin"><input id="aU" placeholder="Username DIDIER"><input id="aPh" placeholder="Phone 078..."><input id="aPi" placeholder="PIN 2026" type="number"><button class="btn" style="background:#38bdf8;color:#0f172a" id="btnAddAdmin">➕ Ongeramo ADMIN</button><div id="aList" style="margin-top:10px"></div></div>
-<div class="box" style="border:2px solid #22c55e"><h3>👥 2. Andikisha Umukozi → WhatsApp + Sunday - Bihari!</h3><input id="nN" placeholder="Amazina"><input id="nPh" placeholder="Phone 078..."><input id="nPi" placeholder="PIN 1001" type="number"><input id="nSa" placeholder="Salary 100000" type="number"><select id="nSh"><option value="Day">☀️ Day</option><option value="Night">🌙 Night</option></select><label style="display:flex;align-items:center;gap:8px;margin:8px 0;color:#f59e0b"><input type="checkbox" id="nSun" style="width:auto"> ⛪ Akora Ku Cyumweru?</label><button class="btn" style="background:#22c55e;color:#fff" id="btnAddStaff">Andikisha → WhatsApp - Abikwa!</button></div>
+<div class="box" style="border:2px solid #38bdf8"><h3>👑 1. Kongeramo ADMIN + Siba</h3><input id="aN" placeholder="Amazina y'Admin"><input id="aU" placeholder="Username DIDIER"><input id="aPh" placeholder="Phone 078..."><input id="aPi" placeholder="PIN 2026" type="number"><button class="btn" style="background:#38bdf8;color:#0f172a" id="btnAddAdmin">➕ Ongeramo ADMIN</button><div id="aList" style="margin-top:10px"></div></div>
+<div class="box" style="border:2px solid #22c55e"><h3>👥 2. Andikisha Umukozi + Siba</h3><input id="nN" placeholder="Amazina"><input id="nPh" placeholder="Phone 078..."><input id="nPi" placeholder="PIN 1001" type="number"><input id="nSa" placeholder="Salary 100000" type="number"><select id="nSh"><option value="Day">☀️ Day</option><option value="Night">🌙 Night</option></select><label style="display:flex;align-items:center;gap:8px;margin:8px 0;color:#f59e0b"><input type="checkbox" id="nSun" style="width:auto"> ⛪ Akora Ku Cyumweru?</label><button class="btn" style="background:#22c55e;color:#fff" id="btnAddStaff">Andikisha → WhatsApp</button></div>
 </div>
 </div>
 </div>
@@ -88,15 +87,9 @@ var avances=load('iz_avances',[{id:'AV-001',empId:'IZP-001',empName:'Alice',amou
 var timelogs=load('iz_logs',[]);
 var curShift='ALL';
 function saveAll(){save('iz_staff',staff);save('iz_admins',admins);save('iz_avances',avances);save('iz_logs',timelogs);}
-
 function getLM(){var d=new Date();d.setMonth(d.getMonth()-1);var m=['Mutarama','Gashyantare','Werurwe','Mata','Gicurasi','Kamena','Nyakanga','Kanama','Nzeri','Ukwakira','Ugushyingo','Ukuboza'];return m[d.getMonth()]+' '+d.getFullYear();}
 function openApp(){
 var uInput=document.getElementById('u').value.trim().toUpperCase();
-var pInput=document.getElementById('p').value.trim();
-var ok=false;
-if(uInput==='ADMIN'||uInput==='DIDIER'){for(var i=0;i<admins.length;i++)if(admins[i].user===uInput&&admins[i].pin===pInput)ok=true;if(uInput==='ADMIN'&&pInput==='1234')ok=true;}
-else{for(var i=0;i<staff.length;i++)if(staff[i].id===uInput&&staff[i].pin===pInput)ok=true;}
-if(!ok&&uInput!==''&&pInput!==''){/* allow FORCE anyway */ ok=true;}
 document.getElementById('L').style.display='none';
 document.getElementById('A').style.display='block';
 document.getElementById('mHead').textContent=getLM();
@@ -111,41 +104,52 @@ var list=staff;
 if(curShift==='Day')list=staff.filter(function(s){return s.shift==='Day';});
 else if(curShift==='Night')list=staff.filter(function(s){return s.shift==='Night';});
 else if(curShift==='Sunday')list=staff.filter(function(s){return s.sunday;});
-document.getElementById('teamInfo').textContent='Shift: '+curShift+' | Bose:'+staff.length+' | Day:'+staff.filter(function(s){return s.shift==='Day';}).length+' | Night:'+staff.filter(function(s){return s.shift==='Night';}).length+' | Cyumweru:'+staff.filter(function(s){return s.sunday;}).length+' | '+getLM()+' | Babitswe muri phone ✅';
-var h='';for(var i=0;i<list.length;i++){var av=getAv(list[i].id);var sunTag=list[i].sunday?'<span style="background:#f59e0b;color:#000;padding:1px 6px;border-radius:999px;font-size:10px">⛪ CYUMWERU</span>':'';h+='<div class="box" style="border-left:5px solid '+(list[i].shift==='Day'?'#f59e0b':'#38bdf8')+'"><b>'+list[i].id+' - '+list[i].name+'</b> '+sunTag+'<br>Phone:'+(list[i].phone||'-')+' | PIN:'+list[i].pin+'<br>'+list[i].shift+' '+(list[i].present?'✅ Ahari':'❌ Ntabwo ahari')+'<br>Sal:'+list[i].salary.toLocaleString()+' Av:'+av.toLocaleString()+' <b>FINAL:'+(list[i].salary-av).toLocaleString()+'</b></div>';}
-document.getElementById('teamList').innerHTML=h||'Nta mukozi';
+document.getElementById('teamInfo').textContent='Bose:'+staff.length+' | Day:'+staff.filter(function(s){return s.shift==='Day';}).length+' | Night:'+staff.filter(function(s){return s.shift==='Night';}).length+' | Cyumweru:'+staff.filter(function(s){return s.sunday;}).length+' | Kanda 🗑️ usibe igihe biri ngombwa!';
+var h='';for(var i=0;i<list.length;i++){var av=getAv(list[i].id);var sunTag=list[i].sunday?'<span style="background:#f59e0b;color:#000;padding:1px 6px;border-radius:999px;font-size:10px">⛪</span>':'';h+='<div class="box" style="border-left:5px solid '+(list[i].shift==='Day'?'#f59e0b':'#38bdf8')+'"><div style="display:flex;justify-content:space-between"><div><b>'+list[i].id+' - '+list[i].name+'</b> '+sunTag+'<br>'+list[i].shift+' '+(list[i].present?'✅':'❌')+'<br>FINAL:'+(list[i].salary-av).toLocaleString()+'</div><button class="btn-del" onclick="deleteStaff(\''+list[i].id+'\')">🗑️ SIBA</button></div></div>';}
+document.getElementById('teamList').innerHTML=h;
 }
 function renderTime(){
-var now=new Date();var clockEl=document.getElementById('clock');if(clockEl)clockEl.textContent=now.toLocaleTimeString();
-var dateStr=now.toISOString().slice(0,10);
-var u=document.getElementById('u').value.toUpperCase()||'ADMIN';
-document.getElementById('myInfo').textContent=u+' - '+getLM();
-document.getElementById('todayStatus').textContent='Uyu munsi: '+dateStr;
-var h='<div class="box"><table><tr><th>Date</th><th>ID</th><th>Izina</th><th>IN</th><th>OUT</th><th>H</th></tr>';for(var i=timelogs.length-1;i>=0;i--){var l=timelogs[i];h+='<tr><td>'+l.date+'</td><td>'+l.empId+'</td><td>'+l.empName+'</td><td>'+l.timeIn+'</td><td>'+(l.timeOut||'-')+'</td><td>'+(l.hours?l.hours+'h':'-')+'</td></tr>';}h+='</table></div>';document.getElementById('timeLog').innerHTML=h;
+var now=new Date();var c=document.getElementById('clock');if(c)c.textContent=now.toLocaleTimeString();
+var u=document.getElementById('u').value.toUpperCase()||'ADMIN';document.getElementById('myInfo').textContent=u+' - '+getLM();
+var h='<div class="box"><table><tr><th>Date</th><th>ID</th><th>IN</th><th>OUT</th><th>H</th><th>Action</th></tr>';for(var i=timelogs.length-1;i>=0;i--){var l=timelogs[i];h+='<tr><td>'+l.date+'</td><td>'+l.empId+'</td><td>'+l.timeIn+'</td><td>'+(l.timeOut||'-')+'</td><td>'+(l.hours||'-')+'</td><td><button class="btn-del" onclick="deleteLog('+i+')">🗑️</button></td></tr>';}h+='</table></div>';document.getElementById('timeLog').innerHTML=h;
 }
 function renderPay(){
 var tot=0;for(var i=0;i<staff.length;i++)tot+=(staff[i].salary-getAv(staff[i].id));
-document.getElementById('paySum').innerHTML='FINAL Total: <b>'+tot.toLocaleString()+' RWF</b> | '+getLM()+' | Babitswe ✅';
-var h='<div class="box"><table><tr><th>ID</th><th>Izina</th><th>Shift</th><th>Cyumweru</th><th>FINAL</th></tr>';for(var i=0;i<staff.length;i++){var av=getAv(staff[i].id);h+='<tr><td>'+staff[i].id+'</td><td>'+staff[i].name+'</td><td>'+staff[i].shift+'</td><td>'+(staff[i].sunday?'⛪':'-')+'</td><td><b>'+(staff[i].salary-av).toLocaleString()+'</b></td></tr>';}h+='</table></div>';document.getElementById('payTable').innerHTML=h;
+document.getElementById('paySum').innerHTML='FINAL Total: <b>'+tot.toLocaleString()+' RWF</b>';
+var h='<div class="box"><table><tr><th>ID</th><th>Izina</th><th>Shift</th><th>FINAL</th><th>🗑️</th></tr>';for(var i=0;i<staff.length;i++){var av=getAv(staff[i].id);h+='<tr><td>'+staff[i].id+'</td><td>'+staff[i].name+'</td><td>'+staff[i].shift+'</td><td>'+(staff[i].salary-av).toLocaleString()+'</td><td><button class="btn-del" onclick="deleteStaff(\''+staff[i].id+'\')">SIBA</button></td></tr>';}h+='</table></div>';document.getElementById('payTable').innerHTML=h;
 }
 function renderAv(){
-document.getElementById('avStats').innerHTML='PENDING: '+avances.filter(function(a){return a.status==='PENDING';}).length+' | Babitswe ✅';
-var h='';for(var i=0;i<avances.length;i++){if(avances[i].status!=='PENDING')continue;h+='<div class="box"><b>'+avances[i].empId+' '+avances[i].empName+'</b> - '+avances[i].amount.toLocaleString()+' - '+avances[i].reason+'<br><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><button class="btn" style="background:#22c55e" onclick="approveAv(\''+avances[i].id+'\')">EMEZA</button><button class="btn" style="background:#ef4444" onclick="rejectAv(\''+avances[i].id+'\')">ANGA</button></div></div>';}
-document.getElementById('adminAvList').innerHTML=h||'Nta avance itegereje';
+document.getElementById('avStats').innerHTML='PENDING: '+avances.filter(function(a){return a.status==='PENDING';}).length;
+var h='';for(var i=0;i<avances.length;i++){if(avances[i].status!=='PENDING')continue;h+='<div class="box"><b>'+avances[i].empId+' '+avances[i].empName+'</b> - '+avances[i].amount.toLocaleString()+'<br><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px"><button class="btn" style="background:#22c55e" onclick="approveAv(\''+avances[i].id+'\')">EMEZA</button><button class="btn" style="background:#ef4444" onclick="rejectAv(\''+avances[i].id+'\')">ANGA</button><button class="btn-del" style="padding:14px" onclick="deleteAv(\''+avances[i].id+'\')">🗑️ SIBA</button></div></div>';}
+document.getElementById('adminAvList').innerHTML=h||'Nta avance';
 }
 function renderAdmins(){
-var h='<table><tr><th>User</th><th>Izina</th><th>Phone</th><th>PIN</th></tr>';for(var i=0;i<admins.length;i++)h+='<tr><td>'+admins[i].user+'</td><td>'+admins[i].name+'</td><td>'+(admins[i].phone||'-')+'</td><td>'+admins[i].pin+'</td></tr>';h+='</table>';document.getElementById('aList').innerHTML=h;
+var h='<table><tr><th>User</th><th>Izina</th><th>PIN</th><th>🗑️</th></tr>';for(var i=0;i<admins.length;i++){h+='<tr><td>'+admins[i].user+'</td><td>'+admins[i].name+'</td><td>'+admins[i].pin+'</td><td>'+(admins[i].user!=='ADMIN'?'<button class="btn-del" onclick="deleteAdmin(\''+admins[i].user+'\')">SIBA</button>':'🔒')+'</td></tr>';}h+='</table>';document.getElementById('aList').innerHTML=h;
 }
 function renderAll(){renderTeam();renderTime();renderPay();renderAv();renderAdmins();}
 window.approveAv=function(id){for(var i=0;i<avances.length;i++)if(avances[i].id===id)avances[i].status='APPROVED';saveAll();renderAll();}
 window.rejectAv=function(id){for(var i=0;i<avances.length;i++)if(avances[i].id===id)avances[i].status='REJECTED';saveAll();renderAll();}
+window.deleteStaff=function(id){
+var s=staff.find(function(x){return x.id===id;});
+if(!s)return;
+if(!confirm('⚠️ URASHATSE GUSIBA BURUNDU?\\n\\n'+id+' - '+s.name+'\\n\\nIbi ntibisubira inyuma!\\n\\nEmeza?'))return;
+staff=staff.filter(function(x){return x.id!==id;});
+avances=avances.filter(function(a){return a.empId!==id;});
+timelogs=timelogs.filter(function(l){return l.empId!==id;});
+saveAll();renderAll();alert('✅ '+id+' Yasibwe burundu!');
+};
+window.deleteAdmin=function(user){
+if(user==='ADMIN'){alert('⛔ Ntushobora gusiba Main ADMIN!');return;}
+if(!confirm('Siba ADMIN '+user+'?'))return;
+admins=admins.filter(function(a){return a.user!==user;});saveAll();renderAdmins();alert('✅ ADMIN '+user+' Yasibwe!');
+};
+window.deleteAv=function(id){if(!confirm('Siba avance '+id+'?'))return;avances=avances.filter(function(a){return a.id!==id;});saveAll();renderAll();};
+window.deleteLog=function(i){if(!confirm('Siba iyi time log?'))return;timelogs.splice(i,1);saveAll();renderTime();};
 
 function setup(){
 function go(){openApp();setInterval(function(){var c=document.getElementById('clock');if(c)c.textContent=new Date().toLocaleTimeString();},1000);}
-document.getElementById('btnE').addEventListener('click',go);
-document.getElementById('btnF').addEventListener('click',go);
-document.getElementById('btnE').addEventListener('touchend',go);
-document.getElementById('btnF').addEventListener('touchend',go);
+document.getElementById('btnE').addEventListener('click',go);document.getElementById('btnF').addEventListener('click',go);
+document.getElementById('btnE').addEventListener('touchend',go);document.getElementById('btnF').addEventListener('touchend',go);
 document.getElementById('nav_team').addEventListener('click',function(){openTab('team',this);});
 document.getElementById('nav_time').addEventListener('click',function(){openTab('time',this);});
 document.getElementById('nav_pay').addEventListener('click',function(){openTab('pay',this);});
@@ -159,52 +163,15 @@ document.getElementById('btnIn').addEventListener('click',function(){tIn();});
 document.getElementById('btnOut').addEventListener('click',function(){tOut();});
 document.getElementById('btnAddAdmin').addEventListener('click',addAdmin);
 document.getElementById('btnAddStaff').addEventListener('click',addStaff);
-setTimeout(function(){document.getElementById('status').textContent='✅ Auto-open - Kanda FORCE niba itifunguye';},1000);
 setTimeout(function(){if(document.getElementById('L').style.display!=='none'){go();}},3000);
 }
 function filterBtn(b){var bs=document.querySelectorAll('.filter button');for(var i=0;i<bs.length;i++)bs[i].classList.remove('active');b.classList.add('active');}
-function openTab(n,b){
-var bs=document.querySelectorAll('.nav button');for(var i=0;i<bs.length;i++)bs[i].classList.remove('active');b.classList.add('active');
-var ts=['team','time','pay','av','set'];for(var i=0;i<ts.length;i++)document.getElementById(ts[i]+'Tab').style.display=ts[i]===n?'block':'none';
-}
-function tIn(){
-var u=document.getElementById('u').value.trim().toUpperCase()||'IZP-001';if(u==='ADMIN')u='IZP-001';var empName=u;for(var i=0;i<staff.length;i++)if(staff[i].id===u){empName=staff[i].name;break;}
-var now=new Date();var date=now.toISOString().slice(0,10);var time=now.toTimeString().slice(0,5);
-for(var i=0;i<timelogs.length;i++)if(timelogs[i].empId===u&&timelogs[i].date===date&&timelogs[i].timeOut===''){alert('Warinjiye: '+timelogs[i].timeIn);return;}
-timelogs.push({empId:u,empName:empName,date:date,timeIn:time,timeOut:'',hours:0});
-for(var i=0;i<staff.length;i++)if(staff[i].id===u)staff[i].present=true;
-saveAll();renderAll();alert('✅ YAJE: '+empName+' '+time);
-}
-function tOut(){
-var u=document.getElementById('u').value.trim().toUpperCase()||'IZP-001';if(u==='ADMIN')u='IZP-001';
-var now=new Date();var date=now.toISOString().slice(0,10);var time=now.toTimeString().slice(0,5);
-var found=null;for(var i=timelogs.length-1;i>=0;i--)if(timelogs[i].empId===u&&timelogs[i].date===date&&timelogs[i].timeOut===''){found=timelogs[i];break;}
-if(!found){alert('Ntiwinjiye uyu munsi');return;}
-var inH=parseInt(found.timeIn.split(':')[0]);var inM=parseInt(found.timeIn.split(':')[1]);var outH=parseInt(time.split(':')[0]);var outM=parseInt(time.split(':')[1]);var h=((outH*60+outM)-(inH*60+inM))/60;if(h<0)h+=24;h=Math.round(h*10)/10;
-found.timeOut=time;found.hours=h;
-for(var i=0;i<staff.length;i++)if(staff[i].id===u)staff[i].present=false;
-saveAll();renderAll();alert('🔴 NASOJE: '+h+'h');
-}
-function addAdmin(){
-var n=document.getElementById('aN').value;var u=document.getElementById('aU').value.trim().toUpperCase();var ph=document.getElementById('aPh').value;var pi=document.getElementById('aPi').value;
-if(!n||!u||!pi){alert('Uzuza Izina + Username + PIN');return;}
-admins.push({user:u,name:n,phone:ph,pin:pi});saveAll();
-document.getElementById('aN').value='';document.getElementById('aU').value='';document.getElementById('aPh').value='';document.getElementById('aPi').value='';
-renderAdmins();alert('✅ ADMIN '+n+' ('+u+') Wongerewemo - Abitswe!');
-}
-function addStaff(){
-var n=document.getElementById('nN').value;var ph=document.getElementById('nPh').value;var pi=document.getElementById('nPi').value;var sa=parseInt(document.getElementById('nSa').value)||100000;var sh=document.getElementById('nSh').value;var sun=document.getElementById('nSun').checked;
-if(!n||!ph||!pi){alert('Amazina+Phone+PIN byuzuze');return;}
-var id='IZP-'+String(staff.length+1).padStart(3,'0');
-staff.push({id:id,name:n,phone:ph,pin:pi,salary:sa,shift:sh,present:false,sunday:sun});saveAll();
-document.getElementById('nN').value='';document.getElementById('nPh').value='';document.getElementById('nPi').value='';document.getElementById('nSa').value='';document.getElementById('nSun').checked=false;
-renderAll();
-var p=ph.replace(/[^0-9]/g,'');if(p.startsWith('0'))p='250'+p.slice(1);if(!p.startsWith('250'))p='250'+p;
-var msg='Murakaza neza '+id+'!%0aAmazina:'+encodeURIComponent(n)+'%0aID:'+id+'%0aShift:'+sh+(sun?'%0a⛪ Akora Cyumweru':'')+'%0aSalary:'+sa.toLocaleString()+' RWF%0aPIN:'+pi+'%0aLink:https://didier123-4.github.io/izihirwe-pro-system/';
-window.open('https://wa.me/'+p+'?text='+msg,'_blank');
-alert('✅ '+n+' '+id+' - '+sh+(sun?' ⛪ Cyumweru':'')+' - Abitswe muri phone - Azaboneka muri '+sh+' ako kanya!');
-}
+function openTab(n,b){var bs=document.querySelectorAll('.nav button');for(var i=0;i<bs.length;i++)bs[i].classList.remove('active');b.classList.add('active');var ts=['team','time','pay','av','set'];for(var i=0;i<ts.length;i++)document.getElementById(ts[i]+'Tab').style.display=ts[i]===n?'block':'none';}
+function tIn(){var u=document.getElementById('u').value.trim().toUpperCase()||'IZP-001';if(u==='ADMIN')u='IZP-001';var empName=u;for(var i=0;i<staff.length;i++)if(staff[i].id===u){empName=staff[i].name;break;}var now=new Date();var date=now.toISOString().slice(0,10);var time=now.toTimeString().slice(0,5);for(var i=0;i<timelogs.length;i++)if(timelogs[i].empId===u&&timelogs[i].date===date&&timelogs[i].timeOut===''){alert('Warinjiye: '+timelogs[i].timeIn);return;}timelogs.push({empId:u,empName:empName,date:date,timeIn:time,timeOut:'',hours:0});for(var i=0;i<staff.length;i++)if(staff[i].id===u)staff[i].present=true;saveAll();renderAll();alert('✅ YAJE: '+empName);}
+function tOut(){var u=document.getElementById('u').value.trim().toUpperCase()||'IZP-001';if(u==='ADMIN')u='IZP-001';var now=new Date();var date=now.toISOString().slice(0,10);var time=now.toTimeString().slice(0,5);var found=null;for(var i=timelogs.length-1;i>=0;i--)if(timelogs[i].empId===u&&timelogs[i].date===date&&timelogs[i].timeOut===''){found=timelogs[i];break;}if(!found){alert('Ntiwinjiye');return;}var inH=parseInt(found.timeIn.split(':')[0]);var inM=parseInt(found.timeIn.split(':')[1]);var outH=parseInt(time.split(':')[0]);var outM=parseInt(time.split(':')[1]);var h=((outH*60+outM)-(inH*60+inM))/60;if(h<0)h+=24;h=Math.round(h*10)/10;found.timeOut=time;found.hours=h;for(var i=0;i<staff.length;i++)if(staff[i].id===u)staff[i].present=false;saveAll();renderAll();}
+function addAdmin(){var n=document.getElementById('aN').value;var u=document.getElementById('aU').value.trim().toUpperCase();var ph=document.getElementById('aPh').value;var pi=document.getElementById('aPi').value;if(!n||!u||!pi){alert('Uzuza');return;}admins.push({user:u,name:n,phone:ph,pin:pi});saveAll();document.getElementById('aN').value='';document.getElementById('aU').value='';document.getElementById('aPh').value='';document.getElementById('aPi').value='';renderAdmins();alert('✅ ADMIN '+n+' Wongerewemo!');}
+function addStaff(){var n=document.getElementById('nN').value;var ph=document.getElementById('nPh').value;var pi=document.getElementById('nPi').value;var sa=parseInt(document.getElementById('nSa').value)||100000;var sh=document.getElementById('nSh').value;var sun=document.getElementById('nSun').checked;if(!n||!ph||!pi){alert('Amazina+Phone+PIN');return;}var id='IZP-'+String(staff.length+1).padStart(3,'0');staff.push({id:id,name:n,phone:ph,pin:pi,salary:sa,shift:sh,present:false,sunday:sun});saveAll();document.getElementById('nN').value='';document.getElementById('nPh').value='';document.getElementById('nPi').value='';document.getElementById('nSa').value='';document.getElementById('nSun').checked=false;renderAll();var p=ph.replace(/[^0-9]/g,'');if(p.startsWith('0'))p='250'+p.slice(1);if(!p.startsWith('250'))p='250'+p;var msg='Murakaza neza '+id+'!%0aID:'+id+'%0aPIN:'+pi;window.open('https://wa.me/'+p+'?text='+msg,'_blank');}
 document.addEventListener('DOMContentLoaded',setup);
 </script>
 </body>
-</html
+</html>
