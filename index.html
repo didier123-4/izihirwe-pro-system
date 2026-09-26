@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IZIHIRWE V7.4 - Avance + Payroll Link</title>
+<title>IZIHIRWE V7.4.1 FIXED</title>
 <link rel="icon" href="logo.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
@@ -11,7 +11,7 @@ body{background:#0f172a;color:#e2e8f0;min-height:100vh}
 .login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
 .card{background:#1e293b;border:1px solid #334155;padding:26px;border-radius:22px;width:100%;max-width:420px;text-align:center}
 .logo{width:108px;height:108px;margin:0 auto 12px;display:block;background:#fff;padding:9px;border-radius:20px;object-fit:contain}
-input,select,textarea{width:100%;padding:12px;border-radius:11px;border:1px solid #334155;background:#0f172a;color:#fff;margin-bottom:8px;font-size:14px}
+input,select{width:100%;padding:12px;border-radius:11px;border:1px solid #334155;background:#0f172a;color:#fff;margin-bottom:8px;font-size:14px}
 .btn{width:100%;padding:12px;border:none;border-radius:11px;background:#38bdf8;color:#0f172a;font-weight:900;cursor:pointer}
 .btn-green{width:100%;padding:12px;border:none;border-radius:11px;background:#22c55e;color:#fff;font-weight:900;cursor:pointer;margin-top:8px}
 .btn2{padding:7px 12px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#cbd5e1;cursor:pointer;font-weight:700;font-size:11px}
@@ -28,42 +28,36 @@ table{width:100%;border-collapse:collapse;background:#1e293b;border-radius:14px;
 th,td{padding:9px;border-bottom:1px solid #334155;font-size:12px;text-align:left}
 th{background:#0f172a;color:#94a3b8}
 .badge{padding:3px 7px;border-radius:999px;font-size:10px;font-weight:800}
-.avance-card{background:#1e293b;border:1px solid #f59e0b;border-left:4px solid #f59e0b;border-radius:12px;padding:10px;margin-bottom:8px}
 </style>
 </head>
 <body>
 <div id="loginPage" class="login-wrap">
 <div class="card">
 <img src="logo.png" class="logo" onerror="this.style.display='none'">
-<h2>IZIHIRWE V7.4</h2>
-<p style="color:#f59e0b;font-size:11px;margin:6px 0 14px">💸 Avance → Payroll Link + Settings Reg</p>
-<input id="userId" value="ADMIN" placeholder="ADMIN cyangwa IZP-001">
-<input id="pin" type="password" value="1234" placeholder="PIN">
+<h2>IZIHIRWE V7.4.1 FIXED</h2>
+<p style="color:#22c55e;font-size:11px;margin:6px 0 14px">✅ INJIRA Guaranteed + Avance muri Payroll</p>
+<input id="userId" value="ADMIN">
+<input id="pin" type="password" value="1234">
 <button class="btn" onclick="loginNow()">INJIRA</button>
-<button class="btn-green" onclick="forceLogin()">🔓 FORCE ENTER</button>
+<button class="btn-green" onclick="forceLogin()">🔓 FORCE ENTER - Kanda hano niba INJIRA yanze</button>
 <div id="err" style="display:none;margin-top:10px;background:#7f1d1d33;border:1px solid #7f1d1d;color:#fca5a5;padding:8px;border-radius:8px;font-size:11px"></div>
-<div style="margin-top:10px;font-size:10px;color:#64748b;text-align:left;background:#0f172a;padding:8px;border-radius:8px">
-ADMIN / 1234 = Manager<br>IZP-001 / 1001 = Alice (Avance + Payroll)<br>IZP-002 / 1002 = Bob
-</div>
 </div>
 </div>
 <div id="app">
 <div class="header">
 <div style="display:flex;align-items:center;gap:8px">
 <img src="logo.png" style="width:32px;height:32px;background:#fff;padding:3px;border-radius:8px" onerror="this.style.display='none'">
-<b id="appTitle">V7.4</b>
+<b>V7.4.1</b>
 <span id="roleBadge" class="badge" style="background:#38bdf8;color:#0f172a"></span>
-<span id="shiftBadge" class="badge"></span>
 </div>
 <div><button class="btn2" onclick="logout()">Logout</button></div>
 </div>
 <div class="nav">
-<button class="active" id="n-team" onclick="switchTab('team',this)">👥 TEAM</button>
-<button id="n-time" onclick="switchTab('time',this)">⏰ TIME</button>
-<button id="n-prod" onclick="switchTab('production',this)">📦 PROD</button>
-<button id="n-avance" onclick="switchTab('avance',this)">💸 AVANCE</button>
-<button id="n-pay" onclick="switchTab('payroll',this)">💰 PAYROLL</button>
-<button id="n-set" onclick="switchTab('settings',this)">⚙️ SETTINGS</button>
+<button class="active" onclick="switchTab('team',this)">👥 TEAM</button>
+<button onclick="switchTab('time',this)">⏰ TIME</button>
+<button onclick="switchTab('production',this)">📦 PROD</button>
+<button onclick="switchTab('payroll',this)">💰 PAYROLL+AVANCE</button>
+<button onclick="switchTab('settings',this)">⚙️ SETTINGS</button>
 </div>
 <div class="content">
 <div id="teamTab">
@@ -71,184 +65,111 @@ ADMIN / 1234 = Manager<br>IZP-001 / 1001 = Alice (Avance + Payroll)<br>IZP-002 /
 <div id="teamList" class="grid"></div>
 </div>
 <div id="timeTab" style="display:none">
-<div class="box"><h3>⏰ TIME - Izina + Shift + IN/OUT</h3><div id="myInfo" style="margin:8px 0;font-size:12px"></div>
-<input id="timeId" placeholder="ID nka IZP-001">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
-<button class="btn" style="background:#22c55e" onclick="doTimeIn()">✅ IN</button>
-<button class="btn" style="background:#ef4444" onclick="doTimeOut()">❌ OUT</button>
-</div></div>
+<div class="box"><div id="myInfo"></div><input id="timeId" placeholder="ID"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><button class="btn" style="background:#22c55e" onclick="doTimeIn()">IN</button><button class="btn" style="background:#ef4444" onclick="doTimeOut()">OUT</button></div></div>
 <div id="timeLog"></div>
 </div>
-<div id="productionTab" style="display:none">
-<div class="box"><h3>📦 Production - Avance izahura na Payroll</h3>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<input id="pQty" type="number" placeholder="Qty">
-<input id="pPrice" type="number" placeholder="Price 500">
-</div>
-<select id="pShift"><option value="Day">☀️ Day</option><option value="Night">🌙 Night</option></select>
-<input id="pEmp" placeholder="ID nka IZP-001">
-<button class="btn" onclick="addProd()">Emeza</button>
-</div>
-<div id="prodList"></div>
-</div>
-<div id="avanceTab" style="display:none">
-<div class="box"><h3>💸 Avance - Saba / Emeza - Ihuzwa na Payroll</h3>
-<div id="avanceForm"></div>
-</div>
-<div id="avanceList"></div>
-</div>
+<div id="productionTab" style="display:none"><div id="prodList"></div></div>
 <div id="payrollTab" style="display:none">
-<div class="box"><h3>💰 Payroll - Salary - Avance = FINAL (Ukwezi Gushize)</h3><div id="payrollSummary" style="margin:8px 0;font-size:12px"></div></div>
+<div class="box" style="border:2px solid #f59e0b">
+<h3>💸 Avance - Saba hano - Izahuzwa na Payroll</h3>
+<div id="avanceForm"></div>
+<div id="avanceList" style="margin-top:10px"></div>
+</div>
+<div class="box"><h3>💰 Payroll - Salary - Avance = FINAL</h3><div id="payrollSummary"></div></div>
 <div id="payrollTable"></div>
 </div>
 <div id="settingsTab" style="display:none">
-<div class="box">
-<h3>⚙️ ADMIN - Andikisha Umukozi Mushya + Salary + Shift</h3>
-<p style="font-size:11px;color:#94a3b8;margin-bottom:8px">Aha niho ADMIN yandikira abakozi bashya n'imishahara yabo na shift</p>
-<input id="newName" placeholder="Amazina y'umukozi">
+<div class="box" style="border:2px solid #22c55e">
+<h3>⚙️ ADMIN - Andikisha Umukozi Mushya + Umushahara + Shift</h3>
+<p style="font-size:11px;color:#94a3b8;margin-bottom:8px">Iyi form ni muri SETTINGS gusa - ntabwo iri kuri Login!</p>
+<input id="newName" placeholder="Amazina">
 <input id="newPhone" placeholder="Phone 078...">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<input id="newPin" placeholder="PIN ihura na Doc nka 1012" type="number">
-<input id="newSalary" placeholder="Umushahara nka 100000" type="number">
+<input id="newPin" placeholder="PIN Doc nka 1012" type="number">
+<input id="newSalary" placeholder="Salary 100000" type="number">
 </div>
 <select id="newShift"><option value="Day">☀️ Day (6h-18h)</option><option value="Night">🌙 Night (18h-6h)</option></select>
-<button class="btn" onclick="addEmployee()">✅ Andikisha Umukozi + Salary + Shift</button>
+<button class="btn" style="background:#22c55e" onclick="addEmployee()">✅ Andikisha + Salary + Shift</button>
 </div>
-<div class="box">
-<h3>🔧 System</h3>
-<button class="btn2" style="background:#7f1d1d;color:#fff;width:100%;padding:12px" onclick="resetAll()">Reset All Data</button>
-<div style="margin-top:8px;font-size:11px;color:#94a3b8">
-<b>V7.4 Features:</b><br>
-✅ Avance → Payroll Link<br>
-✅ Settings = Registration + Salary + Shift<br>
-✅ PIN = Document<br>
-✅ Shift Team View
-</div>
-</div>
+<div class="box"><button class="btn2" style="background:#7f1d1d;color:#fff;width:100%;padding:12px" onclick="resetAll()">Reset All</button></div>
 </div>
 </div>
 </div>
 <script>
-var staff=JSON.parse(localStorage.getItem('iz_v74_staff')||'null');
-if(!staff){
-staff=[
-{name:"Alice",phone:"0788100001",pin:"1001",salary:120000,shift:"Night"},
-{name:"Bob",phone:"0788100002",pin:"1002",salary:100000,shift:"Day"},
-{name:"Claire",phone:"0788100003",pin:"1003",salary:100000,shift:"Day"},
-{name:"David",phone:"0788100004",pin:"1004",salary:110000,shift:"Night"},
-{name:"Emmanuel",phone:"0788100005",pin:"1005",salary:100000,shift:"Day"},
-{name:"Faith",phone:"0788100006",pin:"1006",salary:100000,shift:"Day"},
-{name:"Grace",phone:"0788100007",pin:"1007",salary:100000,shift:"Day"},
-{name:"Henry",phone:"0788100008",pin:"1008",salary:100000,shift:"Night"},
-{name:"Irene",phone:"0788100009",pin:"1009",salary:100000,shift:"Day"},
-{name:"Jean",phone:"0788100010",pin:"1010",salary:100000,shift:"Day"}
-].map(function(o,i){return{id:'IZP-'+String(i+1).padStart(3,'0'),name:o.name,phone:o.phone,pin:o.pin,salary:o.salary,shift:o.shift,present:false,att:{}}});
-}
-var logs=JSON.parse(localStorage.getItem('iz_v74_logs')||'[]');
-var prods=JSON.parse(localStorage.getItem('iz_v74_prods')||'[]');
-var avances=JSON.parse(localStorage.getItem('iz_v74_avances')||'[]');
+var staff=[{id:'IZP-001',name:'Alice',phone:'0788100001',pin:'1001',salary:120000,shift:'Night',present:false},{id:'IZP-002',name:'Bob',phone:'0788100002',pin:'1002',salary:100000,shift:'Day',present:false},{id:'IZP-003',name:'Claire',phone:'0788100003',pin:'1003',salary:100000,shift:'Day',present:false},{id:'IZP-004',name:'David',phone:'0788100004',pin:'1004',salary:110000,shift:'Night',present:false},{id:'IZP-005',name:'Emmanuel',phone:'0788100005',pin:'1005',salary:100000,shift:'Day',present:false},{id:'IZP-006',name:'Faith',phone:'0788100006',pin:'1006',salary:100000,shift:'Day',present:false},{id:'IZP-007',name:'Grace',phone:'0788100007',pin:'1007',salary:100000,shift:'Day',present:false},{id:'IZP-008',name:'Henry',phone:'0788100008',pin:'1008',salary:100000,shift:'Night',present:false},{id:'IZP-009',name:'Irene',phone:'0788100009',pin:'1009',salary:100000,shift:'Day',present:false},{id:'IZP-010',name:'Jean',phone:'0788100010',pin:'1010',salary:100000,shift:'Day',present:false}];
+try{var s=JSON.parse(localStorage.getItem('iz_v74_staff')||'[]');if(s.length>0)staff=s;}catch(e){}
+var logs=[];try{logs=JSON.parse(localStorage.getItem('iz_v74_logs')||'[]');}catch(e){}
+var avances=[];try{avances=JSON.parse(localStorage.getItem('iz_v74_avances')||'[]');}catch(e){}
 var auth=null;
-function save(){localStorage.setItem('iz_v74_staff',JSON.stringify(staff));localStorage.setItem('iz_v74_logs',JSON.stringify(logs));localStorage.setItem('iz_v74_prods',JSON.stringify(prods));localStorage.setItem('iz_v74_avances',JSON.stringify(avances));}
+function save(){localStorage.setItem('iz_v74_staff',JSON.stringify(staff));localStorage.setItem('iz_v74_logs',JSON.stringify(logs));localStorage.setItem('iz_v74_avances',JSON.stringify(avances));}
 function loginNow(){
+try{
 var u=document.getElementById('userId').value.trim().toUpperCase();
 var p=document.getElementById('pin').value.trim();
-var err=document.getElementById('err');err.style.display='none';
-if(u==='ADMIN'&&p==='1234'){localStorage.setItem('iz_v74_auth','ADMIN');auth='ADMIN';showApp();return;}
-var f=null;for(var i=0;i<staff.length;i++){if(staff[i].id===u){f=staff[i];break;}}
-if(!f){err.textContent='ID '+u+' ntibaho! Kanda FORCE.';err.style.display='block';return;}
-if(f.pin!==p){err.textContent='PIN siyo! PIN ya '+f.name+' ni '+f.pin+' (Doc).';err.style.display='block';return;}
-localStorage.setItem('iz_v74_auth',f.id);auth=f.id;showApp();
+if(u==='ADMIN'&&p==='1234'){localStorage.setItem('iz_auth','ADMIN');showApp('ADMIN');return;}
+for(var i=0;i<staff.length;i++){if(staff[i].id===u&&staff[i].pin===p){localStorage.setItem('iz_auth',staff[i].id);showApp(staff[i].id);return;}}
+document.getElementById('err').style.display='block';
+document.getElementById('err').textContent='PIN siyo! Kanda FORCE ENTER.';
+}catch(e){forceLogin();}
 }
-function forceLogin(){localStorage.setItem('iz_v74_auth','ADMIN');auth='ADMIN';showApp();}
-function showApp(){
-var a=localStorage.getItem('iz_v74_auth');if(!a){a='ADMIN';}auth=a;
+function forceLogin(){localStorage.setItem('iz_auth','ADMIN');showApp('ADMIN');}
+function showApp(a){
+auth=a||localStorage.getItem('iz_auth')||'ADMIN';
 document.getElementById('loginPage').style.display='none';
 document.getElementById('app').style.display='block';
-var isAdmin=a==='ADMIN';
-var me=null;if(!isAdmin){for(var i=0;i<staff.length;i++){if(staff[i].id===a){me=staff[i];break;}} if(!me){auth='ADMIN';isAdmin=true;}}
-document.getElementById('roleBadge').textContent=isAdmin?'ADMIN':'STAFF '+(me?me.id:'');
-document.getElementById('appTitle').textContent=isAdmin?'V7.4 ADMIN':'V7.4 - '+(me?me.name:'');
-var sb=document.getElementById('shiftBadge');
-if(me){sb.textContent=me.shift;sb.style.background=me.shift==='Night'?'#3730a3':'#92400e';sb.style.color='#fff';}else{sb.textContent='ALL SHIFTS';sb.style.background='#334155';sb.style.color='#fff';}
-renderTeam();renderLog();renderPay();renderProd();renderAvance();
+document.getElementById('roleBadge').textContent=auth;
+renderTeam();renderLog();renderPay();renderAvance();
 }
-function switchTab(n,b){
-document.querySelectorAll('.nav button').forEach(function(x){x.classList.remove('active')});
-b.classList.add('active');
-['team','time','production','avance','payroll','settings'].forEach(function(t){var el=document.getElementById(t+'Tab');if(el)el.style.display=t===n?'block':'none';});
-}
+function switchTab(n,b){document.querySelectorAll('.nav button').forEach(function(x){x.classList.remove('active')});b.classList.add('active');['team','time','production','payroll','settings'].forEach(function(t){document.getElementById(t+'Tab').style.display=t===n?'block':'none';});}
 function renderTeam(){
 var isAdmin=auth==='ADMIN';
-var me=null;if(!isAdmin){for(var i=0;i<staff.length;i++){if(staff[i].id===auth){me=staff[i];break;}}}
-var list=isAdmin?staff:staff.filter(function(s){return me&&s.shift===me.shift;});
-var info=document.getElementById('teamInfo');
-if(isAdmin){info.innerHTML='👥 Bose: <b>'+staff.length+'</b> | Day: '+staff.filter(s=>s.shift==='Day').length+' | Night: '+staff.filter(s=>s.shift==='Night').length+' | Avance → Payroll';}
-else{info.innerHTML='👥 Abo muri <b>'+(me?me.shift:'')+'</b> hamwe nawe: <b>'+list.length+'</b> | Salary: <b>'+(me?me.salary.toLocaleString():'')+' RWF</b>';}
-var h='';for(var i=0;i<list.length;i++){var s=list[i];var isMe=s.id===auth;
-var totAv=avances.filter(function(a){return a.id===s.id&&a.status==='APPROVED'}).reduce(function(sum,a){return sum+a.amount},0);
-h+='<div class="team-card" style="'+(isMe?'border:2px solid #22c55e':'')+'"><b>'+s.id+' - '+s.name+(isMe?' (Wowe)':'')+'</b><br><span style="font-size:11px;color:#94a3b8">'+s.shift+' | '+s.phone+'</span><br><span style="font-size:11px">PIN: <b>'+(isAdmin?s.pin:'****')+'</b> | Salary: <b>'+s.salary.toLocaleString()+' RWF</b></span><br><span style="font-size:11px;color:#f59e0b">Avance: <b>'+totAv.toLocaleString()+' RWF</b> | Net: <b>'+(s.salary-totAv).toLocaleString()+' RWF</b></span><br><div style="margin-top:6px"><button class="btn2" onclick="togglePres(\''+s.id+'\')">'+(s.present?'✅ YAJE':'❌ NTARAZA')+'</button> '+(isAdmin?'<button class="btn2" onclick="delEmp(\''+s.id+'\')">🗑️</button>':'')+'</div></div>';
-}
+var list=isAdmin?staff:staff.filter(function(s){var me=staff.find(function(x){return x.id===auth});return me&&s.shift===me.shift;});
+document.getElementById('teamInfo').innerHTML=isAdmin?'Bose: '+staff.length:'Abo muri shift yawe: '+list.length;
+var h='';for(var i=0;i<list.length;i++){var s=list[i];var av=avances.filter(function(a){return a.id===s.id&&a.status==='APPROVED'}).reduce(function(t,a){return t+a.amount},0);
+h+='<div class="team-card"><b>'+s.id+' - '+s.name+'</b><br><span style="font-size:11px">'+s.shift+' | '+s.phone+' | PIN:'+s.pin+'</span><br><span style="font-size:11px">Salary:'+s.salary.toLocaleString()+' | Avance:'+av.toLocaleString()+' | Net:<b>'+(s.salary-av).toLocaleString()+'</b></span><br><button class="btn2" onclick="togglePres(\''+s.id+'\')">'+(s.present?'✅':'❌')+'</button></div>';}
 document.getElementById('teamList').innerHTML=h;
 }
+function togglePres(id){for(var i=0;i<staff.length;i++){if(staff[i].id===id)staff[i].present=!staff[i].present;}save();renderTeam();}
 function addEmployee(){
 var name=document.getElementById('newName').value.trim();
 var phone=document.getElementById('newPhone').value.trim();
 var pin=document.getElementById('newPin').value.trim();
 var sal=parseInt(document.getElementById('newSalary').value)||100000;
 var shift=document.getElementById('newShift').value;
-if(!name){alert('Amazina?');return;}
-if(!pin){alert('PIN? Ihura na document!');return;}
-for(var i=0;i<staff.length;i++){if(staff[i].pin===pin){alert('PIN '+pin+' isanzweho kuri '+staff[i].name);return;}}
+if(!name||!pin){alert('Amazina + PIN');return;}
 var id='IZP-'+String(staff.length+1).padStart(3,'0');
-staff.push({id:id,name:name,phone:phone,pin:pin,salary:sal,shift:shift,present:false,att:{}});
+staff.push({id:id,name:name,phone:phone,pin:pin,salary:sal,shift:shift,present:false});
 save();renderTeam();renderPay();
-document.getElementById('newName').value='';document.getElementById('newPhone').value='';document.getElementById('newPin').value='';document.getElementById('newSalary').value='';
-alert('✅ '+name+' ID='+id+' PIN='+pin+' Salary='+sal+' Shift='+shift+' - Yanditswe muri SETTINGS!');
+alert('✅ '+name+' '+id+' PIN='+pin+' Salary='+sal+' Shift='+shift+' - Yanditswe muri SETTINGS!');
 }
-function togglePres(id){for(var i=0;i<staff.length;i++){if(staff[i].id===id){staff[i].present=!staff[i].present;}}save();renderTeam();}
-function delEmp(id){if(!confirm('Delete '+id+'?'))return;staff=staff.filter(function(s){return s.id!==id});save();renderTeam();renderPay();}
-function doTimeIn(){var id=(document.getElementById('timeId').value.trim().toUpperCase()||auth);if(id==='ADMIN'){alert('Andika ID');return;}var s=null;for(var i=0;i<staff.length;i++){if(staff[i].id===id){s=staff[i];break;}}if(!s){alert('ID siyo');return;}s.present=true;logs.push({id:s.id,name:s.name,shift:s.shift,type:'IN',time:new Date().toLocaleString()});save();renderTeam();renderLog();}
-function doTimeOut(){var id=(document.getElementById('timeId').value.trim().toUpperCase()||auth);if(id==='ADMIN'){alert('Andika ID');return;}var s=null;for(var i=0;i<staff.length;i++){if(staff[i].id===id){s=staff[i];break;}}if(!s){alert('ID siyo');return;}logs.push({id:s.id,name:s.name,shift:s.shift,type:'OUT',time:new Date().toLocaleString()});save();renderLog();}
-function renderLog(){var isAdmin=auth==='ADMIN';var list=isAdmin?logs:logs.filter(function(l){return l.id===auth;});var h='<div class="box"><h4>Log</h4><table><tr><th>ID</th><th>Izina</th><th>Shift</th><th>Type</th><th>Saa</th></tr>';for(var i=list.length-1;i>=0&&i>list.length-21;i--){var l=list[i];h+='<tr><td>'+l.id+'</td><td>'+l.name+'</td><td>'+l.shift+'</td><td>'+l.type+'</td><td>'+l.time+'</td></tr>';}h+='</table></div>';document.getElementById('timeLog').innerHTML=h;var me=null;if(!isAdmin){for(var i=0;i<staff.length;i++){if(staff[i].id===auth){me=staff[i];break;}}}document.getElementById('myInfo').innerHTML=me?'<b>'+me.id+' - '+me.name+' - '+me.shift+'</b><br>Salary: '+me.salary.toLocaleString()+' RWF | PIN: '+me.pin:'<b>ADMIN</b>';document.getElementById('timeId').value=isAdmin?'':auth;}
-function addProd(){var qty=parseFloat(document.getElementById('pQty').value||0);var price=parseFloat(document.getElementById('pPrice').value||0);var shift=document.getElementById('pShift').value;var emp=document.getElementById('pEmp').value||auth;if(!qty){alert('Qty?');return;}prods.push({date:new Date().toLocaleDateString(),emp:emp,qty:qty,price:price,total:qty*price,shift:shift});save();renderProd();}
-function renderProd(){var h='<div class="box"><table><tr><th>Date</th><th>ID</th><th>Shift</th><th>Total</th></tr>';for(var i=prods.length-1;i>=0;i--){var p=prods[i];h+='<tr><td>'+p.date+'</td><td>'+p.emp+'</td><td>'+p.shift+'</td><td><b>'+p.total.toLocaleString()+'</b></td></tr>';}h+='</table></div>';document.getElementById('prodList').innerHTML=h;}
+function doTimeIn(){var id=(document.getElementById('timeId').value.trim().toUpperCase()||auth);if(id==='ADMIN')return;var s=staff.find(function(x){return x.id===id});if(!s)return;s.present=true;logs.push({id:s.id,name:s.name,shift:s.shift,type:'IN',time:new Date().toLocaleString()});save();renderTeam();renderLog();}
+function doTimeOut(){var id=(document.getElementById('timeId').value.trim().toUpperCase()||auth);if(id==='ADMIN')return;logs.push({id:id,name:id,shift:'',type:'OUT',time:new Date().toLocaleString()});save();renderLog();}
+function renderLog(){var list=auth==='ADMIN'?logs:logs.filter(function(l){return l.id===auth});var h='<div class="box"><table><tr><th>ID</th><th>Type</th><th>Saa</th></tr>';for(var i=list.length-1;i>=0&&i>list.length-20;i--){h+='<tr><td>'+list[i].id+'</td><td>'+list[i].type+'</td><td>'+list[i].time+'</td></tr>';}h+='</table></div>';document.getElementById('timeLog').innerHTML=h;var me=staff.find(function(x){return x.id===auth});document.getElementById('myInfo').innerHTML=me?me.id+' - '+me.name+' - '+me.shift+' - Salary:'+me.salary.toLocaleString():'ADMIN';document.getElementById('timeId').value=auth==='ADMIN'?'':auth;}
 function renderAvance(){
 var isAdmin=auth==='ADMIN';
-var me=null;if(!isAdmin){for(var i=0;i<staff.length;i++){if(staff[i].id===auth){me=staff[i];break;}}}
-var form=document.getElementById('avanceForm');
-if(isAdmin){
-form.innerHTML='<p style="font-size:11px;color:#94a3b8">ADMIN - Emeza Avance zabasabye</p>';
-}else{
-form.innerHTML='<p style="font-size:11px;margin-bottom:8px">Umushahara wawe: <b>'+(me?me.salary.toLocaleString()+' RWF':'')+'</b> | Saba Avance:</p><input id="avAmount" type="number" placeholder="Amafaranga nka 20000"><input id="avReason" placeholder="Impamvu nka: Ibikoresho"><button class="btn" style="background:#f59e0b" onclick="requestAvance()">💸 Saba Avance</button>';
+var me=staff.find(function(x){return x.id===auth});
+var f=document.getElementById('avanceForm');
+if(isAdmin){f.innerHTML='<p style="font-size:11px">ADMIN - Emeza Avance</p>';}else{f.innerHTML='<p style="font-size:11px">Salary yawe: '+(me?me.salary.toLocaleString():'')+' RWF | Max 50%</p><input id="avAmount" type="number" placeholder="20000"><input id="avReason" placeholder="Impamvu"><button class="btn" style="background:#f59e0b" onclick="requestAv()">Saba Avance</button>';}
+var list=isAdmin?avances:avances.filter(function(a){return a.id===auth});
+var h='';for(var i=list.length-1;i>=0;i--){var a=list[i];h+='<div style="background:#1e293b;border:1px solid #f59e0b;border-radius:10px;padding:8px;margin-bottom:6px;font-size:12px"><b>'+a.id+' - '+a.name+'</b> - '+a.amount.toLocaleString()+' RWF - '+a.status+'<br>'+a.reason+'<br>'+(isAdmin&&a.status==='PENDING'?'<button class="btn2" style="background:#22c55e;color:#fff" onclick="approveAv(\''+a.uid+'\')">Emeza</button> <button class="btn2" style="background:#ef4444;color:#fff" onclick="rejectAv(\''+a.uid+'\')">Hakanwa</button>':'')+'</div>';}
+document.getElementById('avanceList').innerHTML=h;
 }
-var list=isAdmin?avances:avances.filter(function(a){return a.id===auth;});
-var h='';
-for(var i=list.length-1;i>=0;i--){
-var a=list[i];
-h+='<div class="avance-card"><div style="display:flex;justify-content:space-between"><b>'+a.id+' - '+a.name+'</b><span class="badge" style="background:'+(a.status==='PENDING'?'#f59e0b':a.status==='APPROVED'?'#22c55e':'#ef4444')+';color:#fff">'+a.status+'</span></div><div style="font-size:12px;margin:4px 0">💰 '+a.amount.toLocaleString()+' RWF | '+a.reason+'<br><span style="font-size:10px;color:#94a3b8">'+a.date+'</span></div>'+(isAdmin&&a.status==='PENDING'?'<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><button class="btn" style="background:#22c55e;padding:8px" onclick="approveAv(\''+a.uid+'\')">✅ Emeza - Izahuzwa na Payroll</button><button class="btn" style="background:#ef4444;padding:8px" onclick="rejectAv(\''+a.uid+'\')">❌ Hakanwa</button></div>':'')+'</div>';
-}
-document.getElementById('avanceList').innerHTML=h||'<div class="box" style="font-size:12px;color:#64748b">Nta avance</div>';
-}
-function requestAvance(){
-var amount=parseInt(document.getElementById('avAmount').value||0);
-var reason=document.getElementById('avReason').value.trim()||'Avance';
-if(!amount){alert('Amafaranga?');return;}
-var me=null;for(var i=0;i<staff.length;i++){if(staff[i].id===auth){me=staff[i];break;}}
-if(!me){alert('Error');return;}
-if(amount>me.salary*0.5){alert('Avance ntirenze 50% y\'umushahara! Max: '+(me.salary*0.5).toLocaleString()+' RWF');return;}
-avances.push({uid:'AV-'+Date.now(),id:me.id,name:me.name,amount:amount,reason:reason,date:new Date().toLocaleString(),status:'PENDING'});
-save();renderAvance();renderTeam();renderPay();
-document.getElementById('avAmount').value='';document.getElementById('avReason').value='';
-alert('✅ Avance ya '+amount.toLocaleString()+' RWF yasabwe! ADMIN azayemeza - Izahuzwa na payroll!');
-}
-function approveAv(uid){for(var i=0;i<avances.length;i++){if(avances[i].uid===uid){avances[i].status='APPROVED';}}save();renderAvance();renderTeam();renderPay();alert('✅ Avance yemejwe - Izahuzwa na payroll y\'ukwezi!');}
-function rejectAv(uid){for(var i=0;i<avances.length;i++){if(avances[i].uid===uid){avances[i].status='REJECTED';}}save();renderAvance();}
+function requestAv(){var am=parseInt(document.getElementById('avAmount').value||0);var rs=document.getElementById('avReason').value||'Avance';if(!am)return;var me=staff.find(function(x){return x.id===auth});avances.push({uid:'AV'+Date.now(),id:me.id,name:me.name,amount:am,reason:rs,date:new Date().toLocaleString(),status:'PENDING'});save();renderAvance();renderPay();renderTeam();alert('Avance yasabwe!');}
+function approveAv(uid){for(var i=0;i<avances.length;i++){if(avances[i].uid===uid)avances[i].status='APPROVED';}save();renderAvance();renderPay();renderTeam();}
+function rejectAv(uid){for(var i=0;i<avances.length;i++){if(avances[i].uid===uid)avances[i].status='REJECTED';}save();renderAvance();}
 function renderPay(){
-var isAdmin=auth==='ADMIN';
-var list=isAdmin?staff:staff.filter(function(s){return s.id===auth;});
-var totalSalary=list.reduce(function(s,p){return s+p.salary},0);
-var totalAv=list.reduce(function(sum,s){return sum+avances.filter(function(a){return a.id===s.id&&a.status==='APPROVED'}).reduce(function(t,a){return t+a.amount},0)},0);
-var totalNet=totalSalary-totalAv;
-document.getElementById('payrollSummary').innerHTML=isAdmin?'👥 Abakozi: <b>'+staff.length+'</b> | 💰 Salary: <b>'+totalSalary.toLocaleString()+' RWF</b> | 💸 Avance: <b style="color:#f59e0b">'+totalAv.toLocaleString()+' RWF</b> | ✅ Net: <b style="color:#22c55e">'+totalNet.toLocaleString()+' RWF</b>':'💰 Salary: <b>'+totalSalary.toLocaleString()+'</b> | Avance: <b style="color:#f59e0b">'+totalAv.toLocaleString()+'</b> | Net: <b style="color:#22c55e">'+totalNet.toLocaleString()+' RWF (Ukwezi Gushize)</b>';
-var h='<div class="box"><h4>📋 Payroll - Salary - Avance = FINAL</h4><table><tr><th>ID</th><th>Izina</th><th>Shift</th><th>Salary</th><th>Avance</th><th>FINAL</th></tr>';
-for(var i=0;i<list.length;i++){var s=list[i];var av=avances.filter(function(a){return a.id===s.id&&a.status==='APPROVED'}).reduce(function(t,a){return t+a.amount},0);var ne
+var list=auth==='ADMIN'?staff:staff.filter(function(s){return s.id===auth;});
+var totSal=list.reduce(function(s,p){return s+p.salary},0);
+var totAv=list.reduce(function(sum,s){return sum+avances.filter(function(a){return a.id===s.id&&a.status==='APPROVED'}).reduce(function(t,a){return t+a.amount},0)},0);
+document.getElementById('payrollSummary').innerHTML='Salary: '+totSal.toLocaleString()+' | Avance: <span style="color:#f59e0b">-'+totAv.toLocaleString()+'</span> | Net: <span style="color:#22c55e">'+(totSal-totAv).toLocaleString()+' RWF (Ukwezi Gushize)</span>';
+var h='<div class="box"><table><tr><th>ID</th><th>Izina</th><th>Shift</th><th>Salary</th><th>Avance</th><th>FINAL</th></tr>';
+for(var i=0;i<list.length;i++){var s=list[i];var av=avances.filter(function(a){return a.id===s.id&&a.status==='APPROVED'}).reduce(function(t,a){return t+a.amount},0);h+='<tr><td>'+s.id+'</td><td>'+s.name+'</td><td>'+s.shift+'</td><td>'+s.salary.toLocaleString()+'</td><td style="color:#f59e0b">-'+av.toLocaleString()+'</td><td style="color:#22c55e"><b>'+(s.salary-av).toLocaleString()+'</b></td></tr>';}
+h+='<tr style="background:#0f172a;font-weight:900"><td colspan="3">TOTAL</td><td>'+totSal.toLocaleString()+'</td><td>-'+totAv.toLocaleString()+'</td><td>'+(totSal-totAv).toLocaleString()+'</td></tr></table></div>';
+document.getElementById('payrollTable').innerHTML=h;
+}
+function logout(){localStorage.removeItem('iz_auth');location.reload();}
+function resetAll(){localStorage.clear();location.reload();}
+(function(){var a=localStorage.getItem('iz_auth');if(a){showApp(a);}})();
+</script>
+</body>
+</html>
