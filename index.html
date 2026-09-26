@@ -1,48 +1,307 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HAPPY V7.13.5 ULTRA</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:#0f172a;color:#e2e8f0}.card{background:#1e293b;border:1px solid #334155;padding:26px;border-radius:22px;width:90%;max-width:420px;text-align:center;margin:20px auto}input{width:100%;padding:13px;border-radius:11px;border:1px solid #334155;background:#0f172a;color:#fff;margin-bottom:8px}.btn{width:100%;padding:18px;border:none;border-radius:12px;font-weight:900;cursor:pointer;font-size:15px}.header{padding:10px;display:flex;justify-content:space-between;border-bottom:1px solid #1e293b}.nav{display:flex;gap:6px;overflow:auto;padding:10px;background:#0f172a;position:sticky;top:0}.nav button{padding:11px 18px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-weight:800;white-space:nowrap}.nav button.active{background:#38bdf8!important;color:#0f172a!important}.content{padding:12px;max-width:1250px;margin:auto}.box{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:14px;margin-bottom:10px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}table{width:100%;border-collapse:collapse}th,td{padding:8px;border-bottom:1px solid #334155;font-size:11px}</style></head><body>
-<div id="L" style="min-height:100vh;display:flex;align-items:center;justify-content:center"><div class="card"><h2>V7.13.5 ULTRA FORCE ✅</h2><p style="color:#22c55e;font-size:11px;margin:8px 0">🔓 NTA CHECK - YINJIRA 100% - BYOSE BIHARI</p><input id="u" value="ADMIN" placeholder="ADMIN"><input id="p" type="password" value="1234" placeholder="PIN"><button id="btnE" class="btn" style="background:#38bdf8;color:#0f172a;margin-bottom:12px">ENTRANCE</button><button id="btnF" class="btn" style="background:#22c55e;color:#fff;border:3px solid #fff;box-shadow:0 0 20px #22c55e">🔓 FORCE ENTER - KANDA HANO - 100% YINJIRA</button><p style="font-size:11px;color:#f59e0b;margin-top:12px">Niba ENTRANCE yanga - Kanda FORCE - Nta PIN irebwa - Yinjira ako kanya!<br><br><a href="?force=1" style="color:#38bdf8">🔗 Kanda hano winjire Direct -?force=1</a></p></div></div>
-<div id="A" style="display:none"><div class="header"><div><b>V7.13.5 ULTRA</b> <span id="badge" style="background:#38bdf8;color:#0f172a;padding:3px 8px;border-radius:999px;font-size:10px">ADMIN</span> <span id="mHead" style="font-size:11px;color:#22c55e"></span></div><button onclick="location.reload()" style="padding:7px 14px;border-radius:999px;background:#1e293b;color:#fff;border:1px solid #334155">Logout</button></div><div class="nav"><button class="active" id="nav_team">👥 TEAM</button><button id="nav_time">⏰ TIME</button><button id="nav_pay">💰 PAYROLL</button><button id="nav_av">💸 AVANCE</button><button id="nav_set">⚙️ SETTINGS</button></div><div class="content"><div id="teamTab"><div id="teamList" class="grid"></div></div><div id="timeTab" style="display:none"><div class="box" style="border:2px solid #22c55e;text-align:center"><h3>⏰ TIME - LINKED</h3><div id="clock" style="font-size:36px;font-weight:900">--:--:--</div><div id="myInfo"></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px"><button class="btn" style="background:#22c55e" id="btnIn">✅ YAJE</button><button class="btn" style="background:#ef4444" id="btnOut">🔴 NASOJE</button></div></div><div id="timeLog"></div></div><div id="payTab" style="display:none"><div id="payTable"></div></div><div id="avTab" style="display:none"><div id="adminAvList"></div></div><div id="setTab" style="display:none"><div class="box"><h3>👑 ADMIN + Staff + DELETE - BYOSE BIHARI</h3><input id="aN" placeholder="Amazina Admin"><input id="aU" placeholder="Username"><input id="aPi" placeholder="PIN" type="number"><button class="btn" style="background:#38bdf8;color:#0f172a" id="btnAddAdmin">➕ ADMIN</button><div id="aList"></div></div><div class="box"><h3>👥 Andikisha + LINKED + SIBA</h3><input id="nN" placeholder="Amazina"><input id="nPh" placeholder="Phone 078..."><input id="nPi" placeholder="PIN"><input id="nSa" placeholder="Salary" type="number"><select id="nSh"><option>Day</option><option>Night</option></select><button class="btn" style="background:#22c55e" id="btnAddStaff">Andikisha + WhatsApp LINKED</button></div></div></div></div>
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HAPPY V7.13.6 ULTRA</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#0f172a;color:#e2e8f0;min-height:100vh}
+.card{
+ background:#1e293b;border:1px solid #334155;
+ padding:26px;border-radius:22px;
+ width:90%;max-width:420px;text-align:center;
+ margin:20px auto
+}
+input,select{
+ width:100%;padding:13px;border-radius:11px;
+ border:1px solid #334155;
+ background:#0f172a;color:#fff;margin-bottom:8px
+}
+.btn{
+ width:100%;padding:18px;border:none;
+ border-radius:12px;font-weight:900;
+ cursor:pointer;font-size:15px
+}
+.header{
+ padding:10px;display:flex;
+ justify-content:space-between;
+ border-bottom:1px solid #1e293b
+}
+.nav{
+ display:flex;gap:6px;overflow:auto;
+ padding:10px;background:#0f172a;
+ position:sticky;top:0;z-index:9
+}
+.nav button{
+ padding:11px 18px;border-radius:999px;
+ border:1px solid #334155;
+ background:#1e293b;color:#94a3b8;
+ font-weight:800;white-space:nowrap
+}
+.nav button.active{
+ background:#38bdf8!important;color:#0f172a!important
+}
+.content{padding:12px;max-width:1250px;margin:auto}
+.box{
+ background:#1e293b;border:1px solid #334155;
+ border-radius:14px;padding:14px;margin-bottom:10px
+}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+ gap:10px
+}
+table{width:100%;border-collapse:collapse}
+th,td{
+ padding:8px;border-bottom:1px solid #334155;
+ font-size:11px;text-align:left
+}
+</style>
+</head>
+<body>
+
+<div id="L" style="min-height:100vh;display:flex;align-items:center;justify-content:center">
+<div class="card">
+<h2>V7.13.6 ULTRA FORCE ✅</h2>
+<p style="color:#22c55e;font-size:11px;margin:8px 0">
+🔓 NTA CHECK - YINJIRA 100% - BYOSE BIHARI
+</p>
+<input id="u" value="ADMIN" placeholder="ADMIN">
+<input id="p" type="password" value="1234" placeholder="PIN">
+<button id="btnE" class="btn" style="background:#38bdf8;color:#0f172a;margin-bottom:12px">
+ENTRANCE
+</button>
+<button id="btnF" class="btn" style="background:#22c55e;color:#fff;border:3px solid #fff;box-shadow:0 0 20px #22c55e">
+🔓 FORCE ENTER - 100% YINJIRA
+</button>
+<p style="font-size:11px;color:#f59e0b;margin-top:12px">
+Niba ENTRANCE yanga - Kanda FORCE!<br>
+Nta PIN irebwa - Yinjira ako kanya!
+</p>
+<a href="?force=1" style="color:#38bdf8;font-size:12px">
+🔗 Kanda hano winjire Direct
+</a>
+</div>
+</div>
+
+<div id="A" style="display:none">
+<div class="header">
+<div>
+<b>V7.13.6</b>
+<span id="badge" style="background:#38bdf8;color:#0f172a;padding:3px 8px;border-radius:999px;font-size:10px">ADMIN</span>
+<span id="mHead" style="font-size:11px;color:#22c55e"></span>
+</div>
+<button onclick="location.reload()" style="padding:7px 14px;border-radius:999px;background:#1e293b;color:#fff;border:1px solid #334155">
+Logout
+</button>
+</div>
+
+<div class="nav">
+<button class="active" id="nav_team">👥 TEAM</button>
+<button id="nav_time">⏰ TIME</button>
+<button id="nav_pay">💰 PAYROLL</button>
+<button id="nav_av">💸 AVANCE</button>
+<button id="nav_set">⚙️ SETTINGS</button>
+</div>
+
+<div class="content">
+<div id="teamTab"><div id="teamList" class="grid"></div></div>
+<div id="timeTab" style="display:none">
+<div class="box" style="border:2px solid #22c55e;text-align:center">
+<h3>⏰ TIME - LINKED</h3>
+<div id="clock" style="font-size:36px;font-weight:900">--:--:--</div>
+<div id="myInfo"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+<button class="btn" style="background:#22c55e" id="btnIn">✅ YAJE</button>
+<button class="btn" style="background:#ef4444" id="btnOut">🔴 NASOJE</button>
+</div>
+</div>
+<div id="timeLog"></div>
+</div>
+<div id="payTab" style="display:none"><div id="payTable"></div></div>
+<div id="avTab" style="display:none"><div id="adminAvList"></div></div>
+<div id="setTab" style="display:none">
+<div class="box">
+<h3>👑 ADMIN + Staff + DELETE</h3>
+<input id="aN" placeholder="Amazina Admin">
+<input id="aU" placeholder="Username">
+<input id="aPi" placeholder="PIN" type="number">
+<button class="btn" style="background:#38bdf8;color:#0f172a" id="btnAddAdmin">➕ ADMIN</button>
+<div id="aList"></div>
+</div>
+<div class="box">
+<h3>👥 Andikisha + LINKED + SIBA</h3>
+<input id="nN" placeholder="Amazina">
+<input id="nPh" placeholder="Phone 078...">
+<input id="nPi" placeholder="PIN">
+<input id="nSa" placeholder="Salary" type="number">
+<select id="nSh">
+<option>Day</option>
+<option>Night</option>
+</select>
+<button class="btn" style="background:#22c55e" id="btnAddStaff">Andikisha + WhatsApp LINKED</button>
+</div>
+</div>
+</div>
+</div>
+
 <script>
-var staff=JSON.parse(localStorage.getItem('iz_staff')||'null')||[{id:'IZP-001',name:'Alice',phone:'0788100001',pin:'1001',salary:120000,shift:'Night',present:false,sunday:true},{id:'IZP-002',name:'Bob',phone:'0728046330',pin:'1002',salary:100000,shift:'Day',present:false,sunday:false},{id:'IZP-003',name:'Claire',pin:'1003',salary:100000,shift:'Day',present:false,sunday:true}];
-var admins=JSON.parse(localStorage.getItem('iz_admins')||'null')||[{user:'ADMIN',pin:'1234',name:'Didier'}];
-var avances=JSON.parse(localStorage.getItem('iz_avances')||'[]');var timelogs=JSON.parse(localStorage.getItem('iz_logs')||'[]');var curUser=null;
-function saveAll(){localStorage.setItem('iz_staff',JSON.stringify(staff));localStorage.setItem('iz_admins',JSON.stringify(admins));localStorage.setItem('iz_avances',JSON.stringify(avances));localStorage.setItem('iz_logs',JSON.stringify(timelogs));}
-function launch(){document.getElementById('L').style.display='none';document.getElementById('A').style.display='block';document.getElementById('mHead').textContent=new Date().toLocaleDateString()+' - '+curUser.id;document.getElementById('badge').textContent=curUser.id;renderAll();setInterval(function(){var c=document.getElementById('clock');if(c)c.textContent=new Date().toLocaleTimeString();},1000);}
+var staff = JSON.parse(localStorage.getItem('iz_staff')||'null') || [
+{id:'IZP-001',name:'Alice',phone:'0788100001',pin:'1001',salary:120000,shift:'Night',present:false},
+{id:'IZP-002',name:'Bob',phone:'0728046330',pin:'1002',salary:100000,shift:'Day',present:false},
+{id:'IZP-003',name:'Claire',pin:'1003',salary:100000,shift:'Day',present:false}
+];
+
+var admins = JSON.parse(localStorage.getItem('iz_admins')||'null') || [
+{user:'ADMIN',pin:'1234',name:'Didier'}
+];
+
+var avances = JSON.parse(localStorage.getItem('iz_avances')||'[]');
+var timelogs = JSON.parse(localStorage.getItem('iz_logs')||'[]');
+var curUser = null;
+
+function saveAll(){
+ localStorage.setItem('iz_staff',JSON.stringify(staff));
+ localStorage.setItem('iz_admins',JSON.stringify(admins));
+ localStorage.setItem('iz_avances',JSON.stringify(avances));
+ localStorage.setItem('iz_logs',JSON.stringify(timelogs));
+}
+
+function launch(){
+ document.getElementById('L').style.display='none';
+ document.getElementById('A').style.display='block';
+ document.getElementById('mHead').textContent = new Date().toLocaleDateString()+' - '+curUser.id;
+ document.getElementById('badge').textContent = curUser.id;
+ renderAll();
+ setInterval(function(){
+  var c=document.getElementById('clock');
+  if(c) c.textContent=new Date().toLocaleTimeString();
+ },1000);
+}
+
 function ultraForce(){
-var u=(document.getElementById('u').value.trim()||'ADMIN').toUpperCase();var p=document.getElementById('p').value.trim()||'1234';
-var isAdmin=u==='ADMIN'||u==='DIDIER';
-if(isAdmin){curUser={type:'admin',id:'ADMIN',data:{name:'Didier Admin',id:'ADMIN'}};}else{
-var found=staff.find(function(s){return s.id===u||(s.phone&&s.phone.replace(/[^0-9]/g,'')===u.replace(/[^0-9]/g,''));});
-if(!found){found={id:u.startsWith('IZP-')?u:'IZP-'+String(staff.length+1).padStart(3,'0'),name:u,phone:u,pin:p,salary:100000,shift:'Day',present:false,sunday:false};staff.push(found);saveAll();}
-curUser={type:'staff',id:found.id,data:found};
+ var u = (document.getElementById('u').value.trim()||'ADMIN').toUpperCase();
+ var p = document.getElementById('p').value.trim()||'1234';
+ var isAdmin = (u==='ADMIN' || u==='DIDIER');
+ if(isAdmin){
+  curUser={type:'admin',id:'ADMIN',data:{name:'Didier Admin',id:'ADMIN'}};
+ } else {
+  var found = staff.find(function(s){
+   return s.id===u || (s.phone && s.phone.replace(/[^0-9]/g,'')===u.replace(/[^0-9]/g,''));
+  });
+  if(!found){
+   found={
+    id: u.startsWith('IZP-')?u:'IZP-'+String(staff.length+1).padStart(3,'0'),
+    name: u, phone: u, pin: p,
+    salary:100000, shift:'Day', present:false
+   };
+   staff.push(found);
+   saveAll();
+  }
+  curUser={type:'staff',id:found.id,data:found};
+ }
+ launch();
 }
-launch();
-}
+
 function normalEnter(){
-var u=document.getElementById('u').value.trim().toUpperCase();var p=document.getElementById('p').value.trim();
-if((u==='ADMIN'&&p==='1234')||u!==''){ultraForce();}else{alert('Andika ADMIN/1234 hanyuma kanda FORCE niba byanze');}
+ ultraForce();
 }
-function getAv(id){var t=0;for(var i=0;i<avances.length;i++)if(avances[i].empId===id&&avances[i].status==='APPROVED')t+=avances[i].amount;return t;}
+
+function getAv(id){
+ var t=0;
+ for(var i=0;i<avances.length;i++){
+  if(avances[i].empId===id && avances[i].status==='APPROVED') t+=avances[i].amount;
+ }
+ return t;
+}
+
 function renderAll(){
-var h='';for(var i=0;i<staff.length;i++){var av=getAv(staff[i].id);h+='<div class="box"><b>'+staff[i].id+' '+staff[i].name+'</b><br>Phone:'+staff[i].phone+' PIN:'+staff[i].pin+'<br>Salary:'+staff[i].salary+' Av:'+av+' FINAL:'+(staff[i].salary-av)+' <br><button onclick="staff=staff.filter(function(s){return s.id!==\''+staff[i].id+'\'});saveAll();renderAll()" style="background:#ef4444;color:#fff;border:none;padding:4px 8px;border-radius:6px;margin-top:6px">🗑️ SIBA</button> <button onclick="curUser={type:\'staff\',id:\''+staff[i].id+'\',data:staff['+i+']};launch()" style="background:#38bdf8;border:none;padding:4px 8px;border-radius:6px">🔗 REBA LINKED</button></div>';}
-document.getElementById('teamList').innerHTML=h;
-var pt='<div class="box"><table><tr><th>ID</th><th>FINAL</th></tr>';for(var i=0;i<staff.length;i++)pt+='<tr><td>'+staff[i].id+'</td><td>'+(staff[i].salary-getAv(staff[i].id))+'</td></tr>';pt+='</table></div>';document.getElementById('payTable').innerHTML=pt;
-document.getElementById('timeLog').innerHTML='<div class="box">TIME logs: '+timelogs.length+'</div>';
-document.getElementById('adminAvList').innerHTML='<div class="box">AVANCE: '+avances.length+'</div>';
-var ah='<table><tr><th>User</th><th>PIN</th></tr>';for(var i=0;i<admins.length;i++)ah+='<tr><td>'+admins[i].user+'</td><td>'+admins[i].pin+'</td></tr>';ah+='</table>';document.getElementById('aList').innerHTML=ah;
-if(curUser)document.getElementById('myInfo').textContent=curUser.id+' - '+(curUser.data.salary-getAv(curUser.id))+' RWF FINAL LINKED';
+ var h='';
+ for(var i=0;i<staff.length;i++){
+  var av=getAv(staff[i].id);
+  h+='<div class="box"><b>'+staff[i].id+' '+staff[i].name+'</b><br>Phone:'+staff[i].phone+' PIN:'+staff[i].pin+'<br>Salary:'+staff[i].salary+' Av:'+av+' FINAL:'+(staff[i].salary-av)+'<br><button onclick="deleteStaff(\''+staff[i].id+'\')" style="background:#ef4444;color:#fff;border:none;padding:4px 8px;border-radius:6px;margin-top:6px">🗑️ SIBA</button></div>';
+ }
+ document.getElementById('teamList').innerHTML=h;
+ var pt='<div class="box"><table><tr><th>ID</th><th>FINAL</th></tr>';
+ for(var i=0;i<staff.length;i++) pt+='<tr><td>'+staff[i].id+'</td><td>'+(staff[i].salary-getAv(staff[i].id))+'</td></tr>';
+ pt+='</table></div>';
+ document.getElementById('payTable').innerHTML=pt;
+ document.getElementById('timeLog').innerHTML='<div class="box">TIME logs: '+timelogs.length+'</div>';
+ document.getElementById('adminAvList').innerHTML='<div class="box">AVANCE: '+avances.length+'</div>';
+ var ah='<table><tr><th>User</th><th>PIN</th></tr>';
+ for(var i=0;i<admins.length;i++) ah+='<tr><td>'+admins[i].user+'</td><td>'+admins[i].pin+'</td></tr>';
+ ah+='</table>';
+ document.getElementById('aList').innerHTML=ah;
+ if(curUser) document.getElementById('myInfo').textContent=curUser.id+' - '+(curUser.data.salary-getAv(curUser.id))+' RWF FINAL';
 }
-function tIn(){var id=curUser.id;var now=new Date();timelogs.push({empId:id,date:now.toISOString().slice(0,10),timeIn:now.toTimeString().slice(0,5),timeOut:'',hours:0});saveAll();renderAll();}
-function tOut(){var id=curUser.id;var now=new Date();for(var i=timelogs.length-1;i>=0;i--)if(timelogs[i].empId===id&&timelogs[i].timeOut===''){timelogs[i].timeOut=now.toTimeString().slice(0,5);timelogs[i].hours=8;break;}saveAll();renderAll();}
-function addAdmin(){var n=document.getElementById('aN').value;var u=document.getElementById('aU').value.toUpperCase();var p=document.getElementById('aPi').value;if(!n||!u||!p)return;admins.push({user:u,name:n,pin:p});saveAll();renderAll();}
-function addStaff(){var n=document.getElementById('nN').value;var ph=document.getElementById('nPh').value;var pi=document.getElementById('nPi').value;var sa=parseInt(document.getElementById('nSa').value)||100000;var sh=document.getElementById('nSh').value;if(!n||!ph||!pi)return;var id='IZP-'+String(staff.length+1).padStart(3,'0');staff.push({id:id,name:n,phone:ph,pin:pi,salary:sa,shift:sh,present:false,sunday:false});saveAll();renderAll();var pp=ph.replace(/[^0-9]/g,'');if(pp.startsWith('0'))pp='250'+pp.slice(1);window.open('https://wa.me/'+pp+'?text=ID:'+id+' PIN:'+pi+' Link:https://didier123-4.github.io/izihirwe-pro-system/?force=1%26id='+id+'%26pin='+pi,'_blank');}
+
+function deleteStaff(id){
+ if(!confirm('Siba '+id+'?')) return;
+ staff=staff.filter(function(s){return s.id!==id;});
+ saveAll();
+ renderAll();
+}
+
+function tIn(){
+ var id=curUser.id;
+ var now=new Date();
+ timelogs.push({empId:id,date:now.toISOString().slice(0,10),timeIn:now.toTimeString().slice(0,5),timeOut:'',hours:0});
+ saveAll();renderAll();
+}
+
+function tOut(){
+ var id=curUser.id;
+ var now=new Date();
+ for(var i=timelogs.length-1;i>=0;i--){
+  if(timelogs[i].empId===id && timelogs[i].timeOut===''){
+   timelogs[i].timeOut=now.toTimeString().slice(0,5);
+   timelogs[i].hours=8;
+   break;
+  }
+ }
+ saveAll();renderAll();
+}
+
+function addAdmin(){
+ var n=document.getElementById('aN').value;
+ var u=document.getElementById('aU').value.toUpperCase();
+ var p=document.getElementById('aPi').value;
+ if(!n||!u||!p) return;
+ admins.push({user:u,name:n,pin:p});
+ saveAll();renderAll();
+}
+
+function addStaff(){
+ var n=document.getElementById('nN').value;
+ var ph=document.getElementById('nPh').value;
+ var pi=document.getElementById('nPi').value;
+ var sa=parseInt(document.getElementById('nSa').value)||100000;
+ var sh=document.getElementById('nSh').value;
+ if(!n||!ph||!pi) return;
+ var id='IZP-'+String(staff.length+1).padStart(3,'0');
+ staff.push({id:id,name:n,phone:ph,pin:pi,salary:sa,shift:sh,present:false});
+ saveAll();renderAll();
+ var pp=ph.replace(/[^0-9]/g,'');
+ if(pp.startsWith('0')) pp='250'+pp.slice(1);
+ var link='https://didier123-4.github.io/izihirwe-pro-system/?force=1&id='+id+'&pin='+pi;
+ window.open('https://wa.me/'+pp+'?text=ID:'+id+' PIN:'+pi+' Link:'+encodeURIComponent(link),'_blank');
+}
+
 document.addEventListener('DOMContentLoaded',function(){
-document.getElementById('btnE').addEventListener('click',normalEnter);document.getElementById('btnF').addEventListener('click',ultraForce);
-document.getElementById('nav_team').addEventListener('click',function(){var b=document.querySelectorAll('.nav button');for(var i=0;i<b.length;i++)b[i].classList.remove('active');this.classList.add('active');document.getElementById('teamTab').style.display='block';document.getElementById('timeTab').style.display='none';document.getElementById('payTab').style.display='none';document.getElementById('avTab').style.display='none';document.getElementById('setTab').style.display='none';});
-document.getElementById('nav_time').addEventListener('click',function(){var b=document.querySelectorAll('.nav button');for(var i=0;i<b.length;i++)b[i].classList.remove('active');this.classList.add('active');document.getElementById('teamTab').style.display='none';document.getElementById('timeTab').style.display='block';document.getElementById('payTab').style.display='none';document.getElementById('avTab').style.display='none';document.getElementById('setTab').style.display='none';});
-document.getElementById('nav_pay').addEventListener('click',function(){var b=document.querySelectorAll('.nav button');for(var i=0;i<b.length;i++)b[i].classList.remove('active');this.classList.add('active');document.getElementById('teamTab').style.display='none';document.getElementById('timeTab').style.display='none';document.getElementById('payTab').style.display='block';document.getElementById('avTab').style.display='none';document.getElementById('setTab').style.display='none';});
-document.getElementById('nav_av').addEventListener('click',function(){var b=document.querySelectorAll('.nav button');for(var i=0;i<b.length;i++)b[i].classList.remove('active');this.classList.add('active');document.getElementById('teamTab').style.display='none';document.getElementById('timeTab').style.display='none';document.getElementById('payTab').style.display='none';document.getElementById('avTab').style.display='block';document.getElementById('setTab').style.display='none';});
-document.getElementById('nav_set').addEventListener('click',function(){var b=document.querySelectorAll('.nav button');for(var i=0;i<b.length;i++)b[i].classList.remove('active');this.classList.add('active');document.getElementById('teamTab').style.display='none';document.getElementById('timeTab').style.display='none';document.getElementById('payTab').style.display='none';document.getElementById('avTab').style.display='none';document.getElementById('setTab').style.display='block';});
-document.getElementById('btnIn').addEventListener('click',tIn);document.getElementById('btnOut').addEventListener('click',tOut);document.getElementById('btnAddAdmin').addEventListener('click',addAdmin);document.getElementById('btnAddStaff').addEventListener('click',addStaff);
-if(location.search.includes('force=1')||location.search.includes('id=')){setTimeout(ultraForce,500);}
-});
-</script></body></html>
+ document.getElementById('btnE').addEventListener('click',normalEnter);
+ document.getElementById('btnF').addEventListener('click',ultraForce);
+ document.getElementById('nav_team').addEventListener('click',function(){
+  document.querySelectorAll('.nav button').forEach(function(b){b.classList.remove('active')});
+  this.classList.add('active');
+  document.getElementById('teamTab').style.display='block';
+  document.getElementById('timeTab').style.display='none';
+  document.getElementById('payTab').style.display='none';
+  document.getElementById('avTab').style.display='none';
+  document.getElementById('setTab').style.display='none';
+ });
+ document.getElementById('nav_time').addEventListener('click',function(){
+  document.querySelectorAll('.nav button').forEach(function(b){b.classList.remove('active')});
+  this.classList.add('active');
+  document.getElementById('teamTab').style.display='none';
+  document.getElementBy
