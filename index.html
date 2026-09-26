@@ -1,101 +1,81 @@
 <!DOCTYPE html>
-<html lang="rw">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IZIHIRWE V7.4.3 - Auto Ukwezi</title>
-<link rel="icon" href="logo.png">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+<html lang="rw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IZIHIRWE V7.4.6 STABLE</title><link rel="icon" href="logo.png">
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
 body{background:#0f172a;color:#e2e8f0;min-height:100vh}
-.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
 .card{background:#1e293b;border:1px solid #334155;padding:26px;border-radius:22px;width:100%;max-width:420px;text-align:center}
-.logo{width:108px;height:108px;margin:0 auto 12px;display:block;background:#fff;padding:9px;border-radius:20px;object-fit:contain}
-input,select{width:100%;padding:12px;border-radius:11px;border:1px solid #334155;background:#0f172a;color:#fff;margin-bottom:8px;font-size:14px}
-.btn{width:100%;padding:12px;border:none;border-radius:11px;background:#38bdf8;color:#0f172a;font-weight:900;cursor:pointer}
-.btn-green{width:100%;padding:12px;border:none;border-radius:11px;background:#22c55e;color:#fff;font-weight:900;cursor:pointer;margin-top:8px}
-.btn2{padding:7px 12px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#cbd5e1;cursor:pointer;font-weight:700;font-size:11px}
-.active{background:#38bdf8!important;color:#0f172a!important}
-#app{display:none}
+input,select{width:100%;padding:13px;border-radius:11px;border:1px solid #334155;background:#0f172a;color:#fff;margin-bottom:8px;font-size:14px}
+.btn{width:100%;padding:14px;border:none;border-radius:11px;background:#38bdf8;color:#0f172a;font-weight:900;cursor:pointer;font-size:15px}
+.btn-g{width:100%;padding:14px;border:none;border-radius:11px;background:#22c55e;color:#fff;font-weight:900;cursor:pointer;margin-top:10px;font-size:15px}
 .header{position:sticky;top:0;background:#0f172a;border-bottom:1px solid #1e293b;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
 .nav{display:flex;gap:6px;overflow:auto;padding:10px 12px}
-.nav button{white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-size:11px;font-weight:700}
+.nav button{padding:9px 14px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-size:11px;font-weight:700;white-space:nowrap}
+.nav button.active{background:#38bdf8!important;color:#0f172a!important}
 .content{padding:12px;max-width:1250px;margin:auto}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
-.team-card{background:#1e293b;border:1px solid #334155;border-left:5px solid #38bdf8;border-radius:14px;padding:12px;text-align:left}
+.team-card{background:#1e293b;border:1px solid #334155;border-left:5px solid #38bdf8;border-radius:14px;padding:12px}
 .box{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:14px;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;background:#1e293b;border-radius:14px;overflow:hidden}
-th,td{padding:9px;border-bottom:1px solid #334155;font-size:12px;text-align:left}
+table{width:100%;border-collapse:collapse}
+th,td{padding:8px;border-bottom:1px solid #334155;font-size:11px;text-align:left}
 th{background:#0f172a;color:#94a3b8}
-.badge{padding:3px 7px;border-radius:999px;font-size:10px;font-weight:800}
-</style>
-</head>
-<body>
-<div id="loginPage" class="login-wrap">
+</style></head><body>
+<div id="loginPage" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px">
 <div class="card">
-<img src="logo.png" class="logo" onerror="this.style.display='none'">
-<h2>IZIHIRWE V7.4.3</h2>
-<p style="color:#22c55e;font-size:11px;margin:6px 0 14px">✅ AUTO Ukwezi Gushize + WhatsApp</p>
-<input id="userId" value="ADMIN">
-<input id="pin" type="password" value="1234">
-<button class="btn" onclick="loginNow()">INJIRA</button>
-<button class="btn-green" onclick="forceLogin()">🔓 FORCE ENTER</button>
-<div id="err" style="display:none;margin-top:10px;background:#7f1d1d33;border:1px solid #7f1d1d;color:#fca5a5;padding:8px;border-radius:8px;font-size:11px"></div>
-</div>
-</div>
-<div id="app">
-<div class="header">
-<div style="display:flex;align-items:center;gap:8px">
-<img src="logo.png" style="width:32px;height:32px;background:#fff;padding:3px;border-radius:8px" onerror="this.style.display='none'">
-<b>V7.4.3</b>
-<span id="roleBadge" class="badge" style="background:#38bdf8;color:#0f172a"></span>
-</div>
-<div><button class="btn2" onclick="logout()">Logout</button></div>
-</div>
+<h2>IZIHIRWE V7.4.6</h2><p style="color:#22c55e;font-size:11px;margin:6px 0 14px">✅ STABLE - Ntiyanga Gufunguka - FINAL</p>
+<input id="userId" placeholder="ADMIN" value="ADMIN"><input id="pin" placeholder="1234" type="password" value="1234">
+<button class="btn" onclick="tryLogin()">INJIRA</button>
+<button class="btn-g" onclick="forceEnter()">🔓 FORCE ENTER - 100% Ifunguka</button>
+<p style="font-size:10px;color:#64748b;margin-top:8px">Niba INJIRA yanze: Kanda FORCE ENTER</p>
+</div></div>
+<div id="app" style="display:none">
+<div class="header"><div><b>V7.4.6 STABLE</b> <span id="badge" style="background:#38bdf8;color:#0f172a;padding:3px 7px;border-radius:999px;font-size:10px;font-weight:800"></span> <span id="mHead" style="font-size:10px;color:#22c55e;margin-left:6px"></span></div><button onclick="logout()" style="padding:6px 10px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#fff">Logout</button></div>
 <div class="nav">
-<button class="active" onclick="switchTab('team',this)">👥 TEAM</button>
-<button onclick="switchTab('time',this)">⏰ TIME</button>
-<button onclick="switchTab('production',this)">📦 PROD</button>
-<button onclick="switchTab('payroll',this)">💰 PAYROLL+AVANCE</button>
-<button onclick="switchTab('settings',this)">⚙️ SETTINGS</button>
+<button class="active" onclick="tab('team',this)">👥 TEAM</button>
+<button onclick="tab('time',this)">⏰ TIME</button>
+<button onclick="tab('prod',this)">📦 PROD</button>
+<button onclick="tab('payroll',this)">💰 PAYROLL+AVANCE</button>
+<button onclick="tab('settings',this)">⚙️ SETTINGS</button>
 </div>
 <div class="content">
 <div id="teamTab"><div id="teamInfo" style="margin-bottom:8px;font-size:12px;color:#94a3b8"></div><div id="teamList" class="grid"></div></div>
-<div id="timeTab" style="display:none"><div class="box"><div id="myInfo"></div><input id="timeId" placeholder="ID"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><button class="btn" style="background:#22c55e" onclick="doTimeIn()">IN</button><button class="btn" style="background:#ef4444" onclick="doTimeOut()">OUT</button></div></div><div id="timeLog"></div></div>
-<div id="productionTab" style="display:none"><div id="prodList"></div></div>
+<div id="timeTab" style="display:none"><div class="box"><div id="myInfo"></div><input id="timeId" placeholder="ID"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><button class="btn" style="background:#22c55e" onclick="tIn()">IN</button><button class="btn" style="background:#ef4444" onclick="tOut()">OUT</button></div></div><div id="timeLog"></div></div>
+<div id="prodTab" style="display:none"><div class="box">📦 Production OK</div></div>
 <div id="payrollTab" style="display:none">
-<div class="box" style="border:2px solid #f59e0b"><h3>💸 Avance - Saba hano - Izahuzwa na Payroll ya <span id="monthLabel1"></span></h3><div id="avanceForm"></div><div id="avanceList" style="margin-top:10px"></div></div>
-<div class="box" style="border:2px solid #22c55e"><h3>💰 Payroll - <span id="monthLabel2"></span> (AUTO Ukwezi Gushize - Bikikora)</h3><div id="payrollSummary" style="margin-top:6px"></div><div id="autoInfo" style="margin-top:6px;font-size:11px;color:#22c55e"></div></div><div id="payrollTable"></div>
+<div class="box" style="border:2px solid #f59e0b"><h3>💸 Avance - <span class="ml"></span></h3><div id="avForm"></div><div id="avList" style="margin-top:10px"></div></div>
+<div class="box" style="border:2px solid #22c55e"><h3>💰 Payroll - <span class="ml"></span> (AUTO Ukwezi Gushize - Bikikora)</h3><div id="paySum"></div><p style="font-size:11px;color:#22c55e;margin-top:6px">✅ AUTO - Buri tariki 1 ihinduka</p></div><div id="payTable"></div>
 </div>
 <div id="settingsTab" style="display:none">
-<div class="box" style="border:2px solid #22c55e">
-<h3>⚙️ ADMIN - Andikisha + Salary + Shift → WhatsApp Auto</h3>
-<input id="newName" placeholder="Amazina">
-<input id="newPhone" placeholder="Phone 078... (ifite WhatsApp)">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<input id="newPin" placeholder="PIN nka 1012" type="number">
-<input id="newSalary" placeholder="Salary 100000" type="number">
+<div class="box" style="border:2px solid #38bdf8">
+<h3>👑 Ongeramo Undi ADMIN - NTIBYANGA</h3>
+<input id="aName" placeholder="Izina: Didier2"><input id="aUser" placeholder="Username: ADMIN2"><input id="aPhone" placeholder="Phone 078..."><input id="aPin" placeholder="PIN: 5678" type="number">
+<button class="btn" style="background:#38bdf8" onclick="addAdmin()">👑 Ongeramo ADMIN</button>
+<div id="aList" style="margin-top:10px"></div>
 </div>
-<select id="newShift"><option value="Day">☀️ Day (6h-18h)</option><option value="Night">🌙 Night (18h-6h)</option></select>
-<button class="btn" style="background:#22c55e" onclick="addEmployee()">✅ Andikisha + WhatsApp</button>
+<div class="box" style="border:2px solid #22c55e"><h3>⚙️ Andikisha Umukozi → WhatsApp</h3><input id="nName" placeholder="Amazina"><input id="nPhone" placeholder="Phone 078..."><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><input id="nPin" placeholder="PIN" type="number"><input id="nSal" placeholder="Salary" type="number"></div><select id="nShift"><option value="Day">☀️ Day</option><option value="Night">🌙 Night</option></select><button class="btn" style="background:#22c55e" onclick="addEmp()">✅ Andikisha + WhatsApp</button></div>
+<div class="box"><button onclick="clearAll()" style="width:100%;padding:12px;background:#7f1d1d;color:#fff;border:none;border-radius:10px">Reset All</button></div>
 </div>
-<div class="box"><button class="btn2" style="background:#7f1d1d;color:#fff;width:100%;padding:12px" onclick="resetAll()">Reset All</button></div>
-</div>
-</div>
-</div>
+</div></div>
 <script>
+// STABLE CORE - NO BUG
 var MONTHS=['Mutarama','Gashyantare','Werurwe','Mata','Gicurasi','Kamena','Nyakanga','Kanama','Nzeri','Ukwakira','Ugushyingo','Ukuboza'];
-function getLastMonth(){var d=new Date();d.setMonth(d.getMonth()-1);return {m:d.getMonth(),y:d.getFullYear(),label:MONTHS[d.getMonth()]+' '+d.getFullYear()};}
-var staff=[{id:'IZP-001',name:'Alice',phone:'0788100001',pin:'1001',salary:120000,shift:'Night',present:false},{id:'IZP-002',name:'Bob',phone:'0788100002',pin:'1002',salary:100000,shift:'Day',present:false},{id:'IZP-003',name:'Claire',phone:'0788100003',pin:'1003',salary:100000,shift:'Day',present:false},{id:'IZP-004',name:'David',phone:'0788100004',pin:'1004',salary:110000,shift:'Night',present:false},{id:'IZP-005',name:'Emmanuel',phone:'0788100005',pin:'1005',salary:100000,shift:'Day',present:false},{id:'IZP-006',name:'Faith',phone:'0788100006',pin:'1006',salary:100000,shift:'Day',present:false},{id:'IZP-007',name:'Grace',phone:'0788100007',pin:'1007',salary:100000,shift:'Day',present:false},{id:'IZP-008',name:'Henry',phone:'0788100008',pin:'1008',salary:100000,shift:'Night',present:false},{id:'IZP-009',name:'Irene',phone:'0788100009',pin:'1009',salary:100000,shift:'Day',present:false},{id:'IZP-010',name:'Jean',phone:'0788100010',pin:'1010',salary:100000,shift:'Day',present:false}];
-try{var s=JSON.parse(localStorage.getItem('iz_v74_staff')||'[]');if(s.length>0)staff=s;}catch(e){}
-var logs=[];try{logs=JSON.parse(localStorage.getItem('iz_v74_logs')||'[]');}catch(e){}
-var avances=[];try{avances=JSON.parse(localStorage.getItem('iz_v74_avances')||'[]');}catch(e){}
-var auth=null;
-function save(){localStorage.setItem('iz_v74_staff',JSON.stringify(staff));localStorage.setItem('iz_v74_logs',JSON.stringify(logs));localStorage.setItem('iz_v74_avances',JSON.stringify(avances));}
-function loginNow(){try{var u=document.getElementById('userId').value.trim().toUpperCase();var p=document.getElementById('pin').value.trim();if(u==='ADMIN'&&p==='1234'){localStorage.setItem('iz_auth','ADMIN');showApp('ADMIN');return;}for(var i=0;i<staff.length;i++){if(staff[i].id===u&&staff[i].pin===p){localStorage.setItem('iz_auth',staff[i].id);showApp(staff[i].id);return;}}document.getElementById('err').style.display='block';document.getElementById('err').textContent='PIN siyo! Kanda FORCE ENTER.';}catch(e){forceLogin();}}
-function forceLogin(){localStorage.setItem('iz_auth','ADMIN');showApp('ADMIN');}
-function showApp(a){auth=a||localStorage.getItem('iz_auth')||'ADMIN';document.getElementById('loginPage').style.display='none';document.getElementById('app').style.display='block';document.getElementById('roleBadge').textContent=auth;var lm=getLastMonth();document.getElementById('monthLabel1').textContent=lm.label;document.getElementById('monthLabel2').textContent=lm.label;renderTeam();renderLog();renderPay();renderAvance();}
-function switchTab(n,b){document.querySelectorAll('.nav button').forEach(function(x){x.classList.remove('active')});b.classList.add('active');['team','time','production','payroll','settings'].forEach(function(t){document.getElementById(t+'Tab').style.display=t===n?'block':'none';});}
-function renderTeam(){var isAdmin=auth==='ADMIN';var list=isAdmin?staff:staff.filter(function(s){var me=staff.find(function(x){return x.id===auth});return me&&s.shift===me.shift;});var lm=getLastMonth();document.getElementById('teamInfo').innerHTML=isAdmin?'Bose: '+staff.length+' | Salary Total: '+staff.reduce((s,p)=>s+p.salary,0).toLocaleString()+' RWF | Ukwezi: '+lm.label+' (AUTO)':'Abo muri shift yawe: '+list.length;var h='';for(var i=0;i<list.length;i++){var s=list[i];var av=avances.filter(function(a){return a.id===s.id&&a.status==='APPROVED'}).reduce(function(t,a){return t+a.amount},0);h+='<div class="team-card"><b>'+s.id+' - '+s.name+'</b><br><span style="font-size:11px">'+s.shift+' | '+s.phone+' | PIN:'+s.pin+'</span><br><span style="font-size:11px">Salary:'+s.salary.toLocaleString()+' | Avance:'+av.toLocaleString()+' | Net:<b>'+(s.salary-av).toLocaleString()+'</b></span><br><div style="margin-top:6px"><button class="btn2" onclick="togglePres(\''+s.id+'\')">'+(s.present?'✅ YAJE':'❌ NTARAZA')+'</button> <button class="btn2" style="background:#25D366;color:#fff" onclick="resendWA(\''+s.id+'\')">📱 WhatsApp</button></div></div>';}document.getElementById('teamList').innerHTML=h;}
-function togglePres(id){for(var i=0;i<staff.length;i++){if(staff[i].id===id)staff[i].present=!staff[i].present;}save();renderTeam();}
-function addEmployee(){var name=document.getElementById('newName').value.trim();var phone=document.getElementById('newPhone').value.trim();var pin=document.getElementById('newPin').value.trim();var sal=parseInt(document.getElementById('newSalary').value)||100000;var shift=document.getElementById('newShift').value;if(!name||!pin||!phone){alert('Amazina + PIN + Phone!');return;}var id='IZP-'+String(staff.length+1).padStart(3,'0');staff.push({id:id,name:name,phone:phone,pin:pin,salary:sal,shift:shift,present:false});save();renderTeam();renderPay();var phoneWA=phone.replace(/[^0-9]/g,'');if(phoneWA.startsWith('0'))phoneWA='25'+phoneWA;if(phoneWA.length===10)phoneWA='25'+phoneWA;var msg=encodeURIComponent("Muraho "+name+"! 👋\n\nMurakaza neza kuri IZIHIRWE! 🇷🇼\n\n📋 DOCUMENTS:\n🆔 ID: "+id+"\n🔑 PIN: "+pin+"\n💰 Salary: "+sal.toLocaleString()+" RWF\n⏰ Shift: "+shift+"\n\n🌐 https://didier123-4.github.io/izihirwe-pro-system/\n👉 ID="+id+" + PIN="+pin);var waUrl="https://
+function getLM(){var d=new Date();d.setMonth(d.getMonth()-1);return MONTHS[d.getMonth()]+' '+d.getFullYear();}
+var staff=[
+{id:'IZP-001',name:'Alice',phone:'0788100001',pin:'1001',salary:120000,shift:'Night',present:false},
+{id:'IZP-002',name:'Bob',phone:'0788100002',pin:'1002',salary:100000,shift:'Day',present:false},
+{id:'IZP-003',name:'Claire',phone:'0788100003',pin:'1003',salary:100000,shift:'Day',present:false},
+{id:'IZP-004',name:'David',phone:'0788100004',pin:'1004',salary:110000,shift:'Night',present:false},
+{id:'IZP-005',name:'Emmanuel',phone:'0788100005',pin:'1005',salary:100000,shift:'Day',present:false},
+{id:'IZP-006',name:'Faith',phone:'0788100006',pin:'1006',salary:100000,shift:'Day',present:false},
+{id:'IZP-007',name:'Grace',phone:'0788100007',pin:'1007',salary:100000,shift:'Day',present:false},
+{id:'IZP-008',name:'Henry',phone:'0788100008',pin:'1008',salary:100000,shift:'Night',present:false},
+{id:'IZP-009',name:'Irene',phone:'0788100009',pin:'1009',salary:100000,shift:'Day',present:false},
+{id:'IZP-010',name:'Jean',phone:'0788100010',pin:'1010',salary:100000,shift:'Day',present:false}
+];
+var admins=[{user:'ADMIN',name:'Main Admin',phone:'0780000000',pin:'1234'}];
+var logs=[];var avs=[];var auth='';
+// SAFE LOAD
+try{var x=localStorage.getItem('iz_admins_v6');if(x)admins=JSON.parse(x);}catch(e){}
+try{var x=localStorage.getItem('iz_staff_v6');if(x)staff=JSON.parse(x);}catch(e){}
+try{var x=localStorage.getItem('iz_logs_v6');if(x)logs=JSON.parse(x);}catch(e){}
+try{var x=localStorage.getItem('iz_avs_v6');if(x)avs=JSON.parse(x);}catch(e){}
+function
