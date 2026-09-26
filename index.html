@@ -3,56 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>V7.15 DIRECT</title>
+<title>V7.17 COMPLETE</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
 body{background:#0f172a;color:#e2e8f0;min-height:100vh}
-.card{background:#1e293b;border:1px solid #334155;padding:24px;border-radius:22px;width:90%;max-width:400px;text-align:center;margin:20px auto}
-input{width:100%;padding:12px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#fff;margin-bottom:8px}
+.card{background:#1e293b;border:1px solid #334155;padding:22px;border-radius:22px;width:92%;max-width:400px;text-align:center;margin:18px auto}
+input,select{width:100%;padding:12px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#fff;margin-bottom:8px}
 .btn{width:100%;padding:14px;border:none;border-radius:12px;font-weight:900;cursor:pointer}
 .box{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:14px;margin-bottom:10px}
-.nav{display:flex;gap:6px;overflow:auto;padding:10px;background:#0f172a;position:sticky;top:0}
+.nav{display:flex;gap:6px;overflow:auto;padding:10px;background:#0f172a;position:sticky;top:0;z-index:9}
 .nav button{padding:10px 16px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-weight:800;white-space:nowrap}
 .nav button.active{background:#38bdf8!important;color:#0f172a!important}
-.content{padding:12px;max-width:1200px;margin:auto}
+.content{padding:12px;max-width:1250px;margin:auto}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.filter{display:flex;gap:6px;overflow:auto;margin-bottom:10px}
+.filter button{padding:8px 14px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#94a3b8;font-weight:800;font-size:12px}
+.filter button.active{border-color:#38bdf8;color:#38bdf8;background:#0f172a}
 </style>
 </head>
 <body>
 
 <div id="L" style="min-height:100vh;display:flex;align-items:center;justify-content:center">
 <div class="card">
-<h2>V7.15 DIRECT ✅</h2>
-<p style="color:#22c55e;font-size:11px;margin:8px 0">Kanda DIRECT - Yinjira 100%!</p>
-<input id="u" value="ADMIN" placeholder="ADMIN">
-<input id="p" type="password" value="1234" placeholder="PIN">
-
-<!-- DIRECT INLINE - NTA FUNCTION! - IYI IKORA 100% -->
-<button class="btn" style="background:#38bdf8;color:#0f172a;margin-bottom:10px" onclick="document.getElementById('L').style.display='none';document.getElementById('A').style.display='block';renderAll();">
-ENTRANCE DIRECT
-</button>
-
-<button class="btn" style="background:#22c55e;color:#fff;border:3px solid #fff;box-shadow:0 0 15px #22c55e" onclick="document.getElementById('L').style.display='none';document.getElementById('A').style.display='block';renderAll();">
-🔓 FORCE DIRECT - KANDA HANO - 100% YINJIRA
-</button>
-
-<p style="font-size:11px;color:#f59e0b;margin-top:10px">
-✅ TEAM + TIME + PAYROLL FINAL + DELETE<br>
-✅ 💸 Umukozi asaba Avance - ADMIN EMEZA/ANGA<br>
-✅ ⛪ SUNDAY OPTION - Checkbox - Atari ngombwa<br>
-✅ LINKED + WHATSAPP + PERSISTENT
-</p>
-
-<!-- EMERGENCY - NIBA BYANZE KABISA -->
-<a href="#" style="color:#ef4444;font-size:11px;margin-top:10px;display:block" onclick="localStorage.clear();alert('Cache isibwe - Kanda FORCE nanone');return false;">
-🗑️ Siba Cache - Niba byanze
-</a>
+<h2>V7.17 COMPLETE ✅</h2>
+<p style="color:#22c55e;font-size:11px;margin:8px 0">SHIFT + WHATSAPP LINK + AVANCE + SUNDAY</p>
+<input id="u" value="ADMIN">
+<input id="p" type="password" value="1234">
+<button class="btn" style="background:#38bdf8;color:#0f172a;margin-bottom:10px" onclick="document.getElementById('L').style.display='none';document.getElementById('A').style.display='block';renderAll();">ENTRANCE DIRECT</button>
+<button class="btn" style="background:#22c55e;color:#fff;border:3px solid #fff" onclick="document.getElementById('L').style.display='none';document.getElementById('A').style.display='block';renderAll();">🔓 FORCE DIRECT - 100% YINJIRA</button>
 </div>
 </div>
 
 <div id="A" style="display:none">
 <div style="padding:10px;display:flex;justify-content:space-between;border-bottom:1px solid #334155">
-<b>V7.15 FINAL - TUSOJE 👑</b>
+<b>V7.17 BYOSE 👑</b>
 <button onclick="location.reload()" style="padding:6px 12px;border-radius:999px;background:#1e293b;color:#fff;border:1px solid #334155">Logout</button>
 </div>
 
@@ -65,7 +49,17 @@ ENTRANCE DIRECT
 </div>
 
 <div class="content">
-<div id="teamTab"><div id="teamInfo" style="color:#94a3b8;font-size:12px;margin-bottom:8px"></div><div id="teamList" class="grid"></div></div>
+
+<div id="teamTab">
+<div class="filter">
+<button class="active" onclick="filterShift('ALL',this)">Bose</button>
+<button onclick="filterShift('Day',this)">☀️ Day</button>
+<button onclick="filterShift('Night',this)">🌙 Night</button>
+<button onclick="filterShift('Sunday',this)">⛪ Sunday</button>
+</div>
+<div id="teamInfo" style="color:#94a3b8;font-size:12px;margin-bottom:8px"></div>
+<div id="teamList" class="grid"></div>
+</div>
 
 <div id="timeTab" style="display:none">
 <div class="box" style="border:2px solid #22c55e;text-align:center">
@@ -88,13 +82,13 @@ ENTRANCE DIRECT
 <div id="myAvList" style="margin-top:10px"></div>
 </div>
 <div class="box" style="border:2px solid #38bdf8">
-<h3>👑 ADMIN - Emeza / Anga</h3>
+<h3>👑 ADMIN - Emeza / Anga Avance</h3>
 <div id="adminAvList"></div>
 </div>
 </div>
 
 <div id="setTab" style="display:none">
-<div class="box">
+<div class="box" style="border:2px solid #38bdf8">
 <h3>👑 ADMIN</h3>
 <input id="aN" placeholder="Amazina">
 <input id="aU" placeholder="Username">
@@ -102,17 +96,24 @@ ENTRANCE DIRECT
 <button class="btn" style="background:#38bdf8;color:#0f172a" onclick="addAdmin()">➕ ADMIN</button>
 <div id="aList"></div>
 </div>
-<div class="box">
-<h3>👥 Andikisha + ⛪ SUNDAY OPTION</h3>
-<input id="nN" placeholder="Amazina">
-<input id="nPh" placeholder="Phone 078...">
-<input id="nPi" placeholder="PIN">
-<input id="nSa" placeholder="Salary" type="number">
-<label style="display:flex;gap:8px;margin:8px 0;background:#0f172a;padding:8px;border-radius:8px;border:1px dashed #f59e0b">
+
+<div class="box" style="border:2px solid #22c55e">
+<h3>👥 Andikisha + SHIFT + ⛪ SUNDAY + WhatsApp LINK 🔗</h3>
+<input id="nN" placeholder="Amazina nka MUSABYIMANA Aline">
+<input id="nPh" placeholder="Phone 078... / 0735 074 914">
+<input id="nPi" placeholder="PIN nka 0001">
+<input id="nSa" placeholder="Salary nka 70000" type="number">
+<!-- SHIFT - GARUYE! -->
+<select id="nSh">
+<option value="Day">☀️ Day - Ku manywa</option>
+<option value="Night">🌙 Night - Ni ijoro</option>
+</select>
+<label style="display:flex;gap:8px;margin:8px 0;background:#0f172a;padding:10px;border-radius:10px;border:1px dashed #f59e0b">
 <input type="checkbox" id="nSun" style="width:auto">
-<span style="color:#f59e0b;font-size:11px">⛪ OPTION: Akora Ku Cyumweru rimwe na rimwe? Atari ngombwa buri cyumweru</span>
+<span style="color:#f59e0b;font-size:11px">⛪ OPTION: Akora Ku Cyumweru rimwe na rimwe? Atari ngombwa</span>
 </label>
-<button class="btn" style="background:#22c55e" onclick="addStaff()">Andikisha + WhatsApp</button>
+<button class="btn" style="background:#22c55e;color:#fff" onclick="addStaff()">📲 Andikisha + WhatsApp + Link 🔗</button>
+<p style="font-size:10px;color:#94a3b8;margin-top:6px">WhatsApp: ID + PIN + Link + Shift + Salary + Sunday</p>
 </div>
 </div>
 
@@ -120,18 +121,17 @@ ENTRANCE DIRECT
 </div>
 
 <script>
-var staff = JSON.parse(localStorage.getItem('iz_staff')||'null') || [{id:'IZP-001',name:'Alice',phone:'0788100001',pin:'1001',salary:120000,shift:'Day',sunday:true},{id:'IZP-002',name:'Bob',phone:'0728046330',pin:'1002',salary:100000,shift:'Day',sunday:false}];
-var avances = JSON.parse(localStorage.getItem('iz_avances')||'[]');
-var timelogs = JSON.parse(localStorage.getItem('iz_logs')||'[]');
-var admins = JSON.parse(localStorage.getItem('iz_admins')||'null') || [{user:'ADMIN',pin:'1234',name:'Didier'}];
-
+var staff=JSON.parse(localStorage.getItem('iz_staff')||'null')||[{id:'IZP-011',name:'CYURINYANA Betty',phone:'0728046330',pin:'0001',salary:60000,shift:'Day',sunday:false}];
+var avances=JSON.parse(localStorage.getItem('iz_avances')||'[]');
+var timelogs=JSON.parse(localStorage.getItem('iz_logs')||'[]');
+var admins=JSON.parse(localStorage.getItem('iz_admins')||'null')||[{user:'ADMIN',pin:'1234',name:'Didier'}];
+var currentFilter='ALL';
 function saveAll(){
  localStorage.setItem('iz_staff',JSON.stringify(staff));
  localStorage.setItem('iz_avances',JSON.stringify(avances));
  localStorage.setItem('iz_logs',JSON.stringify(timelogs));
  localStorage.setItem('iz_admins',JSON.stringify(admins));
 }
-
 function showTab(n,b){
  document.querySelectorAll('.nav button').forEach(function(x){x.classList.remove('active')});
  b.classList.add('active');
@@ -141,47 +141,76 @@ function showTab(n,b){
  document.getElementById('avTab').style.display=n==='av'?'block':'none';
  document.getElementById('setTab').style.display=n==='set'?'block':'none';
 }
-
+function filterShift(f,b){
+ currentFilter=f;
+ document.querySelectorAll('.filter button').forEach(function(x){x.classList.remove('active')});
+ if(b) b.classList.add('active');
+ renderAll();
+}
 function getAv(id){
  var t=0;for(var i=0;i<avances.length;i++) if(avances[i].empId===id&&avances[i].status==='APPROVED') t+=avances[i].amount;return t;
 }
-
 function renderAll(){
- document.getElementById('teamInfo').textContent='Bose:'+staff.length+' | Sunday OPTION:'+staff.filter(function(s){return s.sunday;}).length;
+ var filtered=staff;
+ if(currentFilter==='Day') filtered=staff.filter(function(s){return s.shift==='Day';});
+ if(currentFilter==='Night') filtered=staff.filter(function(s){return s.shift==='Night';});
+ if(currentFilter==='Sunday') filtered=staff.filter(function(s){return s.sunday;});
+ document.getElementById('teamInfo').textContent='Bose:'+staff.length+' | Day:'+staff.filter(function(s){return s.shift==='Day';}).length+' | Night:'+staff.filter(function(s){return s.shift==='Night';}).length+' | Sunday:'+staff.filter(function(s){return s.sunday;}).length+' | Garagaza:'+filtered.length;
  var h='';
- for(var i=0;i<staff.length;i++){
-  var av=getAv(staff[i].id);
-  var sun=staff[i].sunday?'<span style="background:#f59e0b;color:#000;padding:2px 6px;border-radius:999px;font-size:10px">⛪ OPTION</span>':'<span style="background:#334155;color:#94a3b8;padding:2px 6px;border-radius:999px;font-size:10px">⛪ Oya</span>';
-  h+='<div class="box"><b>'+staff[i].id+' '+staff[i].name+'</b> '+sun+'<br>Phone:'+staff[i].phone+'<br>FINAL:'+(staff[i].salary-av).toLocaleString()+'<br><button onclick="staff=staff.filter(function(s){return s.id!==\''+staff[i].id+'\'});saveAll();renderAll()" style="background:#ef4444;color:#fff;border:none;padding:4px 8px;border-radius:6px;margin-top:6px">🗑️ SIBA</button></div>';
+ for(var i=0;i<filtered.length;i++){
+  var s=filtered[i];
+  var av=getAv(s.id);
+  var sun=s.sunday?'<span style="background:#f59e0b;color:#000;padding:2px 6px;border-radius:999px;font-size:10px">⛪ OPTION</span>':'';
+  var col=s.shift==='Day'?'#f59e0b':'#38bdf8';
+  h+='<div class="box" style="border-left:5px solid '+col+'"><b>'+s.id+' '+s.name+'</b> '+sun+'<br>Phone:'+s.phone+' PIN:'+s.pin+'<br>Shift:<b style="color:'+col+'">'+(s.shift==='Day'?'☀️ Day':'🌙 Night')+'</b> | Salary:'+s.salary.toLocaleString()+'<br>FINAL:<b>'+(s.salary-av).toLocaleString()+'</b><br><button onclick="staff=staff.filter(function(x){return x.id!==\''+s.id+'\'});saveAll();renderAll()" style="background:#ef4444;color:#fff;border:none;padding:5px 10px;border-radius:6px;margin-top:6px">🗑️ SIBA</button></div>';
  }
  document.getElementById('teamList').innerHTML=h;
- document.getElementById('payTable').innerHTML='<div class="box">PAYROLL FINAL = Salary - Avance - LINKED - Total:'+staff.reduce(function(a,s){return a+(s.salary-getAv(s.id));},0).toLocaleString()+'</div>';
- document.getElementById('timeLog').innerHTML='<div class="box">Logs: '+timelogs.length+'</div>';
+ document.getElementById('payTable').innerHTML='<div class="box">PAYROLL FINAL = Salary - Avance | Total:'+staff.reduce(function(a,s){return a+(s.salary-getAv(s.id));},0).toLocaleString()+'<br>Day:'+staff.filter(function(s){return s.shift==='Day';}).length+' Night:'+staff.filter(function(s){return s.shift==='Night';}).length+'</div>';
+ document.getElementById('timeLog').innerHTML='<div class="box">Logs:'+timelogs.length+'</div>';
  var avh='';
  for(var i=0;i<avances.length;i++){
   var av=avances[i];
-  var col=av.status==='PENDING'?'#f59e0b':av.status==='APPROVED'?'#22c55e':'#ef4444';
-  avh+='<div class="box" style="border-left:5px solid '+col+'"><b>'+av.empId+' '+av.empName+'</b> - '+av.amount.toLocaleString()+' - '+av.reason+'<br><small style="color:'+col+'">'+av.status+'</small>'+(av.status==='PENDING'?'<br><button onclick="approveAv(\''+av.id+'\')" style="background:#22c55e;border:none;padding:6px 10px;border-radius:6px;margin-right:6px;margin-top:6px">✅ EMEZA</button><button onclick="rejectAv(\''+av.id+'\')" style="background:#ef4444;border:none;padding:6px 10px;border-radius:6px;margin-top:6px">❌ HAKANA</button>':'')+'</div>';
+  var c=av.status==='PENDING'?'#f59e0b':av.status==='APPROVED'?'#22c55e':'#ef4444';
+  avh+='<div class="box" style="border-left:5px solid '+c+'"><b>'+av.empId+' '+av.empName+'</b> - '+av.amount.toLocaleString()+' - '+av.reason+'<br><small style="color:'+c+'">'+av.status+'</small>'+(av.status==='PENDING'?'<br><button onclick="approveAv(\''+av.id+'\')" style="background:#22c55e;border:none;padding:6px 10px;border-radius:6px;margin-right:6px;margin-top:6px">✅ EMEZA</button><button onclick="rejectAv(\''+av.id+'\')" style="background:#ef4444;border:none;padding:6px 10px;border-radius:6px;margin-top:6px">❌ HAKANA</button>':'')+'</div>';
  }
  document.getElementById('adminAvList').innerHTML=avh||'Nta avance';
  document.getElementById('myAvList').innerHTML=avh||'Nta avance';
  var ah='';for(var i=0;i<admins.length;i++) ah+=admins[i].user+' - '+admins[i].pin+'<br>';document.getElementById('aList').innerHTML=ah;
  setInterval(function(){var c=document.getElementById('clock');if(c) c.textContent=new Date().toLocaleTimeString();},1000);
 }
-
 function requestAv(){
  var amt=parseInt(document.getElementById('avAmount').value);
  var rs=document.getElementById('avReason').value||'Avance';
  if(!amt) return alert('Andika amount');
- avances.push({id:'AV'+Date.now(),empId:staff[0].id,empName:staff[0].name,amount:amt,reason:rs,status:'PENDING',date:new Date().toISOString().slice(0,10)});
- saveAll();renderAll();alert('✅ Yasabwe - ADMIN azayemeza');
+ avances.push({id:'AV'+Date.now(),empId:staff[0]?staff[0].id:'IZP-011',empName:staff[0]?staff[0].name:'Betty',amount:amt,reason:rs,status:'PENDING',date:new Date().toISOString().slice(0,10)});
+ saveAll();renderAll();alert('✅ Yasabwe');
 }
 function approveAv(id){for(var i=0;i<avances.length;i++) if(avances[i].id===id) avances[i].status='APPROVED';saveAll();renderAll();}
 function rejectAv(id){for(var i=0;i<avances.length;i++) if(avances[i].id===id) avances[i].status='REJECTED';saveAll();renderAll();}
-function tIn(){timelogs.push({empId:staff[0].id,date:new Date().toISOString().slice(0,10),timeIn:new Date().toTimeString().slice(0,5),timeOut:'',hours:0});saveAll();renderAll();}
+function tIn(){var s=staff[0];if(!s) return;timelogs.push({empId:s.id,date:new Date().toISOString().slice(0,10),timeIn:new Date().toTimeString().slice(0,5),timeOut:'',hours:0});saveAll();renderAll();}
 function tOut(){for(var i=timelogs.length-1;i>=0;i--) if(timelogs[i].timeOut===''){timelogs[i].timeOut=new Date().toTimeString().slice(0,5);timelogs[i].hours=8;break;}saveAll();renderAll();}
-function addAdmin(){var n=document.getElementById('aN').value;var u=document.getElementById('aU').value.toUpperCase();var p=document.getElementById('aPi').value;if(!n||!u||!p) return;admins.push({user:u,name:n,pin:p});saveAll();renderAll();}
-function addStaff(){var n=document.getElementById('nN').value;var ph=document.getElementById('nPh').value;var pi=document.getElementById('nPi').value;var sa=parseInt(document.getElementById('nSa').value)||100000;var sun=document.getElementById('nSun').checked;if(!n||!ph||!pi) return;var id='IZP-'+String(staff.length+1).padStart(3,'0');staff.push({id:id,name:n,phone:ph,pin:pi,salary:sa,shift:'Day',sunday:sun});saveAll();renderAll();}
+function addAdmin(){var n=document.getElementById('aN').value;var u=document.getElementById('aU').value.toUpperCase();var p=document.getElementById('aPi').value;if(!n||!u||!p) return;admins.push({user:u,name:n,pin:p});saveAll();document.getElementById('aN').value='';document.getElementById('aU').value='';document.getElementById('aPi').value='';renderAll();}
+function addStaff(){
+ var n=document.getElementById('nN').value.trim();
+ var ph=document.getElementById('nPh').value.trim();
+ var pi=document.getElementById('nPi').value.trim();
+ var sa=parseInt(document.getElementById('nSa').value)||70000;
+ var sh=document.getElementById('nSh').value;
+ var sun=document.getElementById('nSun').checked;
+ if(!n||!ph||!pi){alert('Uzuza Amazina + Phone + PIN');return;}
+ var id='IZP-'+String(staff.length+1).padStart(3,'0');
+ if(staff.some(function(s){return s.id===id;})) id='IZP-'+String(Date.now()).slice(-3);
+ staff.push({id:id,name:n,phone:ph,pin:pi,salary:sa,shift:sh,sunday:sun,present:false});
+ saveAll();renderAll();
+ document.getElementById('nN').value='';document.getElementById('nPh').value='';document.getElementById('nPi').value='';document.getElementById('nSa').value='';document.getElementById('nSun').checked=false;
+ var pp=ph.replace(/[^0-9]/g,'');
+ if(pp.startsWith('0')) pp='250'+pp.slice(1);
+ if(!pp.startsWith('250')) pp='250'+pp;
+ var link='https://didier123-4.github.io/izihirwe-pro-system/?id='+id+'&pin='+pi;
+ var msg='Murakaza neza '+n+' muri HAPPY BAR!%0a%0aID:'+id+'%0aPIN:'+pi+'%0aSalary:'+sa.toLocaleString()+' RWF%0aShift:'+(sh==='Day'?'☀️ Day - Ku manywa':'🌙 Night - Ni ijoro')+(sun?'%0a⛪ OPTION: Ku Cyumweru rimwe na rimwe':'')+'%0a%0a🔗 LINK:%0a'+link+'%0a%0aKanda link winjire!';
+ window.open('https://wa.me/'+pp+'?text='+msg,'_blank');
+ alert('✅ '+n+' - Shift:'+sh+' - WhatsApp + Link byoherejwe!');
+}
 </script>
 </body>
 </html>
