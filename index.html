@@ -1,52 +1,12 @@
 <!DOCTYPE html>
-<html lang="rw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IZIHIRWE Pro V7 FINAL</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#4a0a14">
-<link rel="apple-touch-icon" href="logo.png">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#4a0a14;min-height:100vh;color:#fff}
-.hidden{display:none!important}
-.login-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:20px 14px;background:#4a0a14}
-.logo-img{width:200px;height:200px;border-radius:22px;background:white;padding:8px;object-fit:contain;box-shadow:0 12px 30px rgba(0,0,0,.5);margin:10px 0}
-.wel{text-align:center;margin:8px 0 16px}.wel h1{font-size:36px;font-weight:900}.card{background:#fffdfa;width:100%;max-width:400px;border-radius:22px;padding:20px;color:#2b2b2b;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.badge{background:#fef3f2;border:1px solid #fca5a5;padding:6px 12px;border-radius:20px;font-size:11px;color:#7f1d1d;font-weight:700;margin-bottom:12px;display:inline-block}
-.inp label{font-size:11px;font-weight:700;color:#4a0a14;display:block;margin-bottom:4px}.inp input{width:100%;padding:13px;border-radius:12px;border:1.5px solid #e7caca;background:#fffdfd;font-size:15px;margin-bottom:12px}
-.btn{width:100%;padding:14px;background:#4a0a14;color:white;border:none;border-radius:12px;font-weight:800;cursor:pointer}
-.app{background:#f6f2ee;min-height:100vh;color:#2b2b2b}.topbar{background:#4a0a14;color:white;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
-.tabs{display:flex;gap:6px;padding:10px;overflow:auto;background:#fff;border-bottom:1px solid #eee;position:sticky;top:52px;z-index:10}
-.tab{padding:8px 12px;border-radius:20px;background:#f6f2ee;font-size:11px;font-weight:700;white-space:nowrap;cursor:pointer;border:1px solid #eee}.tab.active{background:#4a0a14;color:white}
-.section{padding:12px;padding-bottom:80px}.box{background:white;border-radius:14px;padding:12px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.employee{padding:11px;border-radius:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;border-left:4px solid #e7caca;background:white}
-.employee.day{border-left-color:#f59e0b}.employee.night{border-left-color:#6366f1}.employee.present{border-left-color:#16a34a;background:#f0fdf4}
-.badge-shift{padding:4px 9px;border-radius:12px;font-size:10px;font-weight:700}.badge-day{background:#fef3c7;color:#92400e}.badge-night{background:#e0e7ff;color:#3730a3}.badge-off{background:#fee2e2;color:#991b1b}
-.badge-status{padding:4px 8px;border-radius:10px;font-size:10px;font-weight:800}.status-in{background:#dcfce7;color:#166534}.status-out{background:#fee2e2;color:#991b1b}
-.shift-opt{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0}.shift-btn{padding:11px;border:2px solid #e7caca;border-radius:12px;background:white;text-align:center;cursor:pointer;font-weight:700;font-size:12px}.shift-btn.active{border-color:#4a0a14;background:#4a0a14;color:white}.shift-btn.day.active{background:#f59e0b;border-color:#f59e0b}.shift-btn.night.active{background:#1e1b4b;border-color:#1e1b4b}
-.input{width:100%;padding:11px;border:1.5px solid #e6d0d0;border-radius:8px;margin:4px 0;font-size:13px}
-.att-day{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;margin:2px;background:#f6f2ee;border:1px solid #eee;font-size:10px;font-weight:600;cursor:pointer}.att-day.present{background:#16a34a;color:white}.att-day.sunday{background:#ef4444;color:white;opacity:.6}
-.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px}.modal-box{background:white;border-radius:18px;padding:18px;width:100%;max-width:380px;color:#2b2b2b;max-height:85vh;overflow-y:auto}
-</style></head><body>
-<div id="loginPage" class="login-wrap">
-<img src="logo.png" class="logo-img" alt="IZIHIRWE Pro">
-<div class="wel"><h1>INJIRA</h1><div>Injira na ID na PIN yawe</div><div style="font-size:11px;margin-top:6px;opacity:.8">IZIHIRWE Pro - 6 Dashboards - Role Based - PWA App</div></div>
-<div class="card">
-<div class="badge">🔒 Secure Employee Login</div>
-<div class="inp"><label>Employee ID</label><input id="empId" value="ADMIN" placeholder="ADMIN cyangwa EMP1"></div>
-<div class="inp"><label>PIN (4 digits)</label><input id="pin" type="password" value="1234" placeholder="1234"></div>
-<button class="btn" onclick="doLogin()">INJIRA / LOGIN →</button>
-<div style="font-size:11px;color:#8a6a6a;text-align:center;margin-top:12px;line-height:1.5">
-<b>ADMIN / 1234</b> = Manager → 6 Dashboards<br>
-<b>EMP1 / 1234</b> = Umukozi → Time gusa<br>
-📱 Iza muri fone nka App - Install
-</div>
-</div></div>
-<div id="appPage" class="app hidden">
-<div class="topbar"><div style="display:flex;gap:8px;align-items:center"><img src="logo.png" style="width:34px;height:34px;background:white;border-radius:8px;padding:3px"><div><b id="userRoleLabel">IZIHIRWE Pro</b><div style="font-size:9px;opacity:.8" id="roleDesc">Manager - 6 Dashboards</div></div></div><div style="display:flex;gap:6px"><span id="clockNow" style="background:rgba(255,255,255,.15);padding:5px 8px;border-radius:8px;font-size:10px">--:--</span><button onclick="location.reload()" style="background:rgba(255,255,255,.2);border:none;color:white;padding:5px 10px;border-radius:8px;font-size:11px">Logout</button></div></div>
-<div class="tabs" id="tabsBar">
-<div class="tab active" data-role="admin" onclick="showTab('team',this)">👥 Team <span id="teamCount">0</span></div>
-<div class="tab" data-role="admin" onclick="showTab('att',this)">📋 Att</div>
-<div class="tab" data-role="all" onclick="showTab('time',this)">⏰ Time</div>
-<div class="tab" data-role="admin" onclick="showTab('prod',this)">📦 Prod</div>
-<div class="tab" data-role="admin" onclick="showTab('avance',this)">💳 Avance</div>
-<div class="tab" data-role="admin" onclick
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IZIHIRWE Pro</title><link rel="manifest" href="manifest.json"><style>*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}body{background:#0f172a;color:white;min-height:100vh}.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}.card{background:#1e293b;padding:35px;border-radius:20px;width:100%;max-width:400px;border:1px solid #334155}input{width:100%;padding:14px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:white;margin-bottom:12px;font-size:16px}button{width:100%;padding:14px;background:#38bdf8;color:#0f172a;border:none;border-radius:10px;font-weight:700;cursor:pointer}.error{color:#f87171;text-align:center;margin-top:12px;display:none}#app{display:none;padding:15px}</style></head><body>
+<div id="loginPage" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px"><div style="background:#1e293b;padding:35px;border-radius:20px;max-width:400px;width:100%"><h1 style="text-align:center">IZIHIRWE Pro</h1><p style="text-align:center;color:#94a3b8;margin-bottom:20px">30 Staff • Day/Night • Sunday OFF</p><input id="userId" placeholder="ID" value="ADMIN"><input id="pin" type="password" placeholder="PIN" value="1234"><button onclick="login()">INJIRA / LOGIN</button><div id="err" style="color:#f87171;text-align:center;margin-top:12px;display:none">ID cyangwa PIN siyo! Koresha ADMIN / 1234</div></div></div>
+<div id="app"><div style="display:flex;justify-content:space-between;background:#1e293b;padding:12px;border-radius:12px;margin-bottom:15px"><b>IZIHIRWE Pro • 30 Staff</b><button style="width:auto;padding:8px 14px;background:#334155;color:white" onclick="localStorage.clear();location.reload()">Logout</button></div><div id="list" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px"></div></div>
+<script>
+const NAMES=["Alice","Bob","Claire","David","Emmanuel","Faith","Grace","Henry","Irene","Jean","Kevin","Linda","Moses","Nadia","Oscar","Paul","Queen","Robert","Sarah","Thomas","Ursula","Victor","Wendy","Xavier","Yvonne","Zack","Aline","Brian","Diane","Eric"];
+let data=JSON.parse(localStorage.getItem('staff')||'null')||NAMES.map((n,i)=>({id:i+1,name:n,shift:i%2==0?'Day':'Night'}));
+function login(){let u=document.getElementById('userId').value.trim().toUpperCase(),p=document.getElementById('pin').value.trim();if(u==='ADMIN'&&p==='1234'){localStorage.setItem('logged','1');showApp()}else{document.getElementById('err').style.display='block'}}
+function showApp(){document.getElementById('loginPage').style.display='none';document.getElementById('app').style.display='block';render()}
+function render(){let h='';data.forEach(s=>{h+=`<div style="background:#1e293b;padding:14px;border-radius:12px;border-left:4px solid #38bdf8"><b>${s.id}. ${s.name}</b> - ${s.shift} <select onchange="data[${s.id-1}].shift=this.value;localStorage.setItem('staff',JSON.stringify(data));render()" style="float:right;background:#0f172a;color:white;padding:4px"><option ${s.shift=='Day'?'selected':''}>Day</option><option ${s.shift=='Night'?'selected':''}>Night</option></select></div>`});document.getElementById('list').innerHTML=h}
+if(localStorage.getItem('logged')==='1')showApp();
+</script></body></html>
